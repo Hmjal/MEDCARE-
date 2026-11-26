@@ -22,8 +22,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || 'medcare_jwt_secret_2026';
 
-// Ensure uploads/prescriptions directory exists
-const uploadDir = path.join(__dirname, 'uploads', 'prescriptions');
+// Ensure uploads/prescriptions directory exists (use /tmp on Vercel serverless)
+const isVercel = Boolean(process.env.VERCEL);
+const uploadsRoot = isVercel ? '/tmp/uploads' : path.join(__dirname, 'uploads');
+const uploadDir = path.join(uploadsRoot, 'prescriptions');
 fs.mkdirSync(uploadDir, { recursive: true });
 
 // Multer storage & validation (.jpg, .png, .pdf up to 10MB)
@@ -52,8 +54,38 @@ const uploadRx = multer({
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ limit: '10mb' }));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(uploadsRoot));
 app.use(express.static(__dirname));
+
+// Ensure MongoDB connection before handling /api requests (needed for Vercel serverless)
+let dbConnectPromise = null;
+async function ensureDbConnected() {
+  if (mongoose.connection.readyState === 1) return;
+  if (!process.env.MONGODB_URI) {
+    throw new Error('MONGODB_URI is missing in environment variables');
+  }
+  if (!dbConnectPromise) {
+    dbConnectPromise = mongoose.connect(process.env.MONGODB_URI)
+      .then(async () => {
+        await seedIfEmpty();
+      })
+      .catch((err) => {
+        dbConnectPromise = null;
+        throw err;
+      });
+  }
+  await dbConnectPromise;
+}
+
+app.use('/api', async (req, res, next) => {
+  try {
+    await ensureDbConnected();
+    next();
+  } catch (err) {
+    console.error('MongoDB connection error:', err.message);
+    res.status(500).json({ error: 'Database connection failed.' });
+  }
+});
 
 // Mount Auth Routes (routes/authRoutes.js)
 app.use('/api/auth', require('./routes/authRoutes'));
@@ -1015,13 +1047,8 @@ async function seedIfEmpty() {
 
 async function startServer() {
   try {
-    if (!process.env.MONGODB_URI) {
-      throw new Error('MONGODB_URI is missing in backend/.env');
-    }
-    await mongoose.connect(process.env.MONGODB_URI);
+    await ensureDbConnected();
     console.log('Connected to MongoDB Atlas successfully.');
-
-    await seedIfEmpty();
 
     app.listen(PORT, () => {
       console.log(`MedCare+ server running at http://localhost:${PORT}/`);
@@ -1032,4 +1059,8 @@ async function startServer() {
   }
 }
 
-startServer();
+if (!isVercel) {
+  startServer();
+}
+
+module.exports = app;
