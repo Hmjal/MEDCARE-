@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Medicines, Brands & Healthcare Essentials | MedCare Online Pharmacy</title>
+  <meta name="description" content="Search authentic prescription medicines, OTC drugs, healthcare equipment, and health advice on MedCare. Fast delivery across 19,000+ pin codes.">
+
+  <!-- Google Fonts: Poppins (Headings) & Roboto (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Free Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Shared & Shop & Search Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shop.css">
+  <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT & HELPLINE BAR
+       ========================================================================== -->
+  <aside class="top-bar" aria-label="Quick helpline">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fa-solid fa-phone-volume"></i> 24/7 Pharmacist Helpline: <strong>+91 1800-MED-CARE</strong></span>
+        <span><i class="fa-solid fa-truck-fast"></i> Express Delivery in 19,000+ Pin Codes</span>
+      </div>
+      <div class="top-bar-right">
+        <span class="top-bar-badge"><i class="fa-solid fa-shield-halved"></i> 100% Certified Genuine</span>
+        <a href="prescription.html" class="trigger-upload-rx"><i class="fa-solid fa-file-medical"></i> Quick Rx Upload</a>
+        <a href="contact.html"><i class="fa-solid fa-headset"></i> Support & Contact</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR (Sticky/Fixed Top)
+       ========================================================================== -->
+  <header class="main-header" id="mainHeader">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo on left -->
+        <a href="index.html" class="logo" aria-label="MedCare Online Pharmacy Home">
+          <div class="logo-icon-wrap">
+            <i class="fa-solid fa-notes-medical"></i>
+          </div>
+          <span>MedCare<span class="logo-plus">+</span></span>
+        </a>
+
+        <!-- Desktop Navigation Menu Items -->
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="shop.html" class="nav-link">Shop Medicines</a></li>
+          <li>
+            <a href="prescription.html" class="nav-link">
+              Upload Prescription
+              <span class="nav-link-badge">Fast</span>
+            </a>
+          </li>
+          <li><a href="search.html" class="nav-link active">Search</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+
+        <!-- Right Side: Cart Button with Badge, Checkout Button & Login / Register -->
+        <div class="header-actions">
+          <!-- Cart Button with text & count badge -->
+          <button class="btn-header-cart" id="cartBtn" aria-label="Open Shopping Cart" title="View Cart Drawer">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Cart</span>
+            <span class="cart-count-badge" style="display: none;">0</span>
+          </button>
+
+          <!-- Direct Checkout Quick Button -->
+          <a href="checkout.html" class="btn-header-checkout" id="headerCheckoutBtn" title="Proceed directly to Checkout">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Checkout</span>
+          </a>
+
+          <!-- User Greeting (when logged in) -->
+          <div id="userGreeting"></div>
+
+          <!-- Login / Register Button -->
+          <a href="login.html" class="btn-login" id="loginBtn">
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Login / Register</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="btn-mobile-menu" id="mobileMenuBtn" aria-label="Open Mobile Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Responsive Navigation Drawer -->
+  <aside class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+        <span>MedCare<span class="logo-plus">+</span></span>
+      </a>
+      <button class="btn-close-mobile" id="closeMobileNav" aria-label="Close menu">&times;</button>
+    </div>
+
+    <ul class="mobile-nav-menu">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house text-primary"></i> Home</a></li>
+      <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-capsules text-primary"></i> Shop Medicines</a></li>
+      <li><a href="search.html" class="mobile-nav-link active"><i class="fa-solid fa-magnifying-glass text-primary"></i> Search Catalog</a></li>
+      <li><a href="prescription.html" class="mobile-nav-link"><i class="fa-solid fa-file-prescription text-primary"></i> Upload Prescription</a></li>
+      <li><a href="cart.html" class="mobile-nav-link"><i class="fa-solid fa-cart-shopping text-primary"></i> Shopping Cart</a></li>
+      <li><a href="checkout.html" class="mobile-nav-link text-success fw-bold"><i class="fa-solid fa-lock text-success"></i> Proceed to Checkout</a></li>
+      <li><a href="index.html#health-blog" class="mobile-nav-link"><i class="fa-solid fa-newspaper text-primary"></i> Health Blog</a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope text-primary"></i> Contact Us</a></li>
+    </ul>
+
+    <div class="mt-auto">
+      <a href="checkout.html" class="btn btn-success w-100 mb-2 fw-bold">
+        <i class="fa-solid fa-lock me-2"></i> Go to Checkout
+      </a>
+      <a href="login.html" class="btn btn-primary w-100 mb-2">
+        <i class="fa-solid fa-right-to-bracket me-2"></i> Account Login
+      </a>
+      <div class="text-center text-muted small">
+        <i class="fa-solid fa-headset me-1"></i> Helpline: 1800-MED-CARE
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       BREADCRUMB NAVIGATION
+       ========================================================================== -->
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i> Home</a></li>
+        <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Search Results</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       1. PROMINENT SEARCH HERO SECTION
+       ========================================================================== -->
+  <section class="search-hero-section">
+    <div class="container">
+      <div class="search-hero-inner">
+        <div class="search-hero-badge">
+          <i class="fa-solid fa-shield-virus"></i> 100% Genuine Pharmacy Database
+        </div>
+        <h1 class="search-hero-title">Search Medicines & Healthcare</h1>
+        <p class="search-hero-subtitle">
+          Instant access to authentic prescription drugs, wellness vitamins, baby care, and verified medical guides.
+        </p>
+
+        <!-- Large Prominent Search Box -->
+        <div class="prominent-search-box-wrap">
+          <div class="prominent-search-box">
+            <i class="fa-solid fa-magnifying-glass search-box-icon"></i>
+            <input 
+              type="text" 
+              id="mainSearchInput" 
+              class="prominent-search-input" 
+              placeholder="Search by medicine name, brand, active salt, or health symptom..." 
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <button class="btn-clear-search" id="clearSearchBtn" title="Clear search">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <button class="btn-prominent-search" id="mainSearchBtn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Search</span>
+            </button>
+          </div>
+
+          <!-- Auto-suggestions Dropdown -->
+          <div class="search-suggestions-dropdown" id="mainSearchSuggestions">
+            <!-- Dynamically populated via search.js -->
+          </div>
+        </div>
+
+        <!-- Recent & Popular Searches Bar -->
+        <div class="search-meta-bar">
+          <!-- Recent Searches Row -->
+          <div class="recent-searches-row" id="recentSearchesContainer">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Popular Searches Row -->
+          <div class="popular-searches-row" id="popularSearchesContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MAIN SEARCH RESULTS CONTENT AREA
+       ========================================================================== -->
+  <main class="search-results-section">
+    <div class="container">
+
+      <!-- Search Results Header Card (Query + Tabs) -->
+      <div class="search-results-header-card">
+        <div class="search-query-summary">
+          <div>
+            <h2 class="search-headline" id="searchHeadlineText">
+              Showing results for <span class="highlight-term">All Products</span>
+            </h2>
+          </div>
+
+          <!-- Mobile Filter Toggle Button -->
+          <button class="btn-filter-mobile-toggle" id="openMobileFilterBtn">
+            <i class="fa-solid fa-filter"></i> Filters & Sort 
+            <span class="active-filter-dot" id="filterActiveDot" style="display: none;"></span>
+          </button>
+        </div>
+
+        <!-- Category & Content Tabs -->
+        <div class="search-nav-tabs" role="tablist">
+          <button class="search-tab-btn active" data-tab="all" role="tab" aria-selected="true">
+            <i class="fa-solid fa-border-all"></i>
+            <span>All Results</span>
+            <span class="tab-badge" id="tabBadgeAll">0</span>
+          </button>
+          <button class="search-tab-btn" data-tab="medicines" role="tab" aria-selected="false">
+            <i class="fa-solid fa-prescription-bottle-medical"></i>
+            <span>Medicines</span>
+            <span class="tab-badge" id="tabBadgeMedicines">0</span>
+          </button>
+          <button class="search-tab-btn" data-tab="health" role="tab" aria-selected="false">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span>Health Products</span>
+            <span class="tab-badge" id="tabBadgeHealth">0</span>
+          </button>
+          <button class="search-tab-btn" data-tab="articles" role="tab" aria-selected="false">
+            <i class="fa-solid fa-newspaper"></i>
+            <span>Blog Articles</span>
+            <span class="tab-badge" id="tabBadgeArticles">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Layout: Sidebar (Left 25%) + Results Column (Right 75%) -->
+      <div class="shop-layout">
+
+        <!-- ==========================================================================
+             2. SEARCH FILTERS SIDEBAR (Same as Shop Page Sidebar)
+             ========================================================================== -->
+        <aside class="shop-sidebar" id="shopSidebar">
+          <div class="sidebar-header-bar">
+            <h3><i class="fa-solid fa-sliders text-primary me-2"></i> Search Filters</h3>
+            <button class="btn-sidebar-close" id="closeMobileFilterBtn">&times;</button>
+          </div>
+
+          <div class="sidebar-actions-top">
+            <button class="btn btn-sm btn-outline-danger" id="btnClearAllFilters">
+              <i class="fa-solid fa-rotate-left me-1"></i> Clear All
+            </button>
+            <span class="active-filter-badge" id="activeFilterCounter">All items</span>
+          </div>
+
+          <!-- Filter Group 1: Search Within Results -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Search Within Results</span>
+              <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </h4>
+            <div class="filter-body">
+              <div class="sidebar-search-box">
+                <input type="text" id="filterKeywordInput" placeholder="Filter by salt, brand..." autocomplete="off">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Group 2: Filter by Category -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Category</span>
+              <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </h4>
+            <div class="filter-body" id="categoryCheckboxesContainer">
+              <!-- Dynamically populated via search.js -->
+            </div>
+          </div>
+
+          <!-- Filter Group 3: Filter by Brand (with Brand Search) -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Brand / Manufacturer</span>
+              <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </h4>
+            <div class="filter-body">
+              <div class="brand-search-input-wrap mb-2">
+                <input type="text" id="brandSearchFilterInput" placeholder="Search brands..." class="brand-subsearch">
+                <i class="fa-solid fa-magnifying-glass brand-subsearch-icon"></i>
+              </div>
+              <div class="brand-checkboxes-scroll" id="brandCheckboxesContainer">
+                <!-- Dynamically populated via search.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Group 4: Price Range (Slider + Min-Max Inputs) -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Price Range (₹)</span>
+              <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </h4>
+            <div class="filter-body">
+              <div class="price-range-inputs">
+                <div class="price-input-field">
+                  <span class="price-input-prefix">₹</span>
+                  <input type="number" id="priceMinInput" min="0" max="3000" value="0">
+                </div>
+                <span class="price-range-sep">to</span>
+                <div class="price-input-field">
+                  <span class="price-input-prefix">₹</span>
+                  <input type="number" id="priceMaxInput" min="0" max="3000" value="2500">
+                </div>
+              </div>
+              <input type="range" id="priceRangeSlider" min="0" max="2500" step="50" value="2500" class="price-slider">
+              <div class="price-slider-labels">
+                <span>₹0</span>
+                <span id="sliderMaxLabel">Up to ₹2,500</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Group 5: Filter by Customer Rating -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Customer Rating</span>
+              <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </h4>
+            <div class="filter-body">
+              <label class="custom-checkbox-row">
+                <input type="radio" name="ratingFilter" value="4.5" class="filter-rating-radio">
+                <span class="custom-checkmark"></span>
+                <span class="rating-filter-label">
+                  <i class="fa-solid fa-star text-warning"></i> 4.5 &amp; above
+                </span>
+              </label>
+              <label class="custom-checkbox-row">
+                <input type="radio" name="ratingFilter" value="4.0" class="filter-rating-radio">
+                <span class="custom-checkmark"></span>
+                <span class="rating-filter-label">
+                  <i class="fa-solid fa-star text-warning"></i> 4.0 &amp; above
+                </span>
+              </label>
+              <label class="custom-checkbox-row">
+                <input type="radio" name="ratingFilter" value="3.5" class="filter-rating-radio">
+                <span class="custom-checkmark"></span>
+                <span class="rating-filter-label">
+                  <i class="fa-solid fa-star text-warning"></i> 3.5 &amp; above
+                </span>
+              </label>
+              <label class="custom-checkbox-row">
+                <input type="radio" name="ratingFilter" value="all" class="filter-rating-radio" checked>
+                <span class="custom-checkmark"></span>
+                <span class="rating-filter-label">All Ratings</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filter Group 6: Availability -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Availability</span>
+              <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </h4>
+            <div class="filter-body">
+              <label class="custom-checkbox-row">
+                <input type="checkbox" id="stockInStockCheckbox" value="inStock" checked>
+                <span class="custom-checkmark"></span>
+                <span>In Stock Only</span>
+              </label>
+              <label class="custom-checkbox-row">
+                <input type="checkbox" id="stockOutOfStockCheckbox" value="outOfStock" checked>
+                <span class="custom-checkmark"></span>
+                <span>Include Out of Stock</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filter Group 7: Discount Tiers -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Discount</span>
+              <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </h4>
+            <div class="filter-body">
+              <label class="custom-checkbox-row">
+                <input type="radio" name="discountFilter" value="50" class="filter-discount-radio">
+                <span class="custom-checkmark"></span>
+                <span>50% or more</span>
+              </label>
+              <label class="custom-checkbox-row">
+                <input type="radio" name="discountFilter" value="30" class="filter-discount-radio">
+                <span class="custom-checkmark"></span>
+                <span>30% or more</span>
+              </label>
+              <label class="custom-checkbox-row">
+                <input type="radio" name="discountFilter" value="20" class="filter-discount-radio">
+                <span class="custom-checkmark"></span>
+                <span>20% or more</span>
+              </label>
+              <label class="custom-checkbox-row">
+                <input type="radio" name="discountFilter" value="10" class="filter-discount-radio">
+                <span class="custom-checkmark"></span>
+                <span>10% or more</span>
+              </label>
+              <label class="custom-checkbox-row">
+                <input type="radio" name="discountFilter" value="0" class="filter-discount-radio" checked>
+                <span class="custom-checkmark"></span>
+                <span>All Discounts</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Mobile Apply Button -->
+          <div class="sidebar-footer-actions">
+            <button class="btn btn-primary w-100" id="btnApplyFilters">
+              <i class="fa-solid fa-check me-1"></i> Apply Filters
+            </button>
+          </div>
+        </aside>
+
+        <!-- Sidebar Backdrop for Mobile -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- ==========================================================================
+             3. SEARCH RESULTS COLUMN (Products & Articles Grid)
+             ========================================================================== -->
+        <section class="shop-products-column" aria-label="Search Results Catalog">
+          
+          <!-- Top Bar: Result Count, Sort Dropdown, View Toggle -->
+          <div class="products-toolbar">
+            <div class="toolbar-left">
+              <span class="results-count-text" id="resultsCountText">Showing <strong>0</strong> products</span>
+              <div class="active-tags-container" id="activeTagsContainer"></div>
+            </div>
+
+            <div class="toolbar-right">
+              <!-- Sort Dropdown -->
+              <div class="sort-selector-wrap">
+                <label for="sortSelect" class="sort-label">Sort by:</label>
+                <select id="sortSelect" class="sort-select">
+                  <option value="relevance">Relevance</option>
+                  <option value="priceLowHigh">Price: Low to High</option>
+                  <option value="priceHighLow">Price: High to Low</option>
+                  <option value="rating">Customer Rating</option>
+                  <option value="discount">Discount (% Off)</option>
+                  <option value="newest">Newest First</option>
+                </select>
+              </div>
+
+              <!-- View Mode Toggle (Grid / List) -->
+              <div class="view-mode-toggle">
+                <button class="btn-view-toggle active" id="viewGridBtn" title="Grid View" aria-label="Grid View">
+                  <i class="fa-solid fa-grip"></i>
+                </button>
+                <button class="btn-view-toggle" id="viewListBtn" title="List View" aria-label="List View">
+                  <i class="fa-solid fa-list"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Product & Article Grid -->
+          <div class="shop-product-grid grid-mode" id="searchProductGrid">
+            <!-- Dynamically populated via search.js -->
+          </div>
+
+          <!-- Pagination Controls -->
+          <div class="shop-pagination-wrapper" id="paginationWrapper">
+            <div class="pagination-info">
+              Showing <span id="paginationStart">0</span> - <span id="paginationEnd">0</span> of <span id="paginationTotal">0</span> results
+            </div>
+            <div class="pagination-controls" id="paginationControls"></div>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       SHOPPING CART DRAWER (Slide-out from Right)
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-header-title">
+        <i class="fa-solid fa-cart-shopping text-primary"></i>
+        <span>Shopping Cart</span>
+        <span class="cart-count-badge">0</span>
+      </div>
+      <button class="btn-close-cart" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <!-- Free Shipping Progress Indicator -->
+    <div class="cart-free-shipping-box">
+      <div class="shipping-progress-text" id="freeShippingText">
+        Add <strong>₹500</strong> more for <strong>FREE Delivery</strong>!
+      </div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" id="freeShippingBar" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Scrollable Items List -->
+    <div class="cart-drawer-body" id="cartItemsList">
+      <!-- Dynamically populated -->
+    </div>
+
+    <!-- Footer Summary & Checkout Action -->
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">₹0</strong>
+      </div>
+      <div class="cart-summary-row total-row">
+        <span>Estimated Total</span>
+        <strong id="cartTotal">₹0</strong>
+      </div>
+      <a href="checkout.html" class="btn btn-primary w-100 py-3 fw-bold" id="checkoutBtn">
+        <i class="fa-solid fa-lock me-2"></i> Proceed to Checkout
+      </a>
+      <a href="cart.html" class="btn btn-outline-secondary w-100 py-2 mt-2">
+        View Full Cart Page
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       QUICK VIEW MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-container modal-quick-view">
+      <button class="btn-modal-close" id="closeQuickViewBtn">&times;</button>
+      <div id="quickViewContent">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       LOGIN / REGISTER MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-container modal-auth">
+      <button class="btn-modal-close" id="closeAuthBtn">&times;</button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Login</button>
+        <button class="auth-tab" data-tab="register">New Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label">Email Address or Mobile</label>
+          <input type="text" id="loginEmail" class="form-control" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-3 small">
+          <label><input type="checkbox" checked> Remember me</label>
+          <a href="#" class="text-primary">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" style="border-radius: var(--border-radius-full);">
+          Sign In
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" style="display: none;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="regName" class="form-control" placeholder="e.g. Aditi Rao" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="regEmail" class="form-control" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Create Password</label>
+          <input type="password" id="regPassword" class="form-control" placeholder="Min. 8 characters" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100 py-2 fw-bold mt-2" style="border-radius: var(--border-radius-full);">
+          Create Free Account
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: About MedCare -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+            <span>MedCare<span class="logo-plus">+</span></span>
+          </div>
+          <p class="footer-desc">
+            India's most trusted online pharmacy offering 100% genuine certified medicines, OTC wellness essentials, and rapid doorstep delivery.
+          </p>
+          <div class="footer-cert-badges">
+            <span class="badge bg-success-subtle text-success me-2"><i class="fa-solid fa-award"></i> WHO-GMP Certified</span>
+            <span class="badge bg-primary-subtle text-primary"><i class="fa-solid fa-user-doctor"></i> Licensed Pharmacists</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Explore Catalog</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> All Medicines</a></li>
+            <li><a href="search.html?tab=medicines"><i class="fa-solid fa-angle-right"></i> Prescription Drugs</a></li>
+            <li><a href="search.html?tab=health"><i class="fa-solid fa-angle-right"></i> Health Supplements</a></li>
+            <li><a href="prescription.html"><i class="fa-solid fa-angle-right"></i> Upload Prescription</a></li>
+            <li><a href="search.html?tab=articles"><i class="fa-solid fa-angle-right"></i> Health Articles & Advice</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Support</a></li>
+            <li><a href="contact.html#business-hours"><i class="fa-solid fa-angle-right"></i> Pharmacy Timings</a></li>
+            <li><a href="contact.html#faq-section"><i class="fa-solid fa-angle-right"></i> Order & Delivery FAQs</a></li>
+            <li><a href="cart.html"><i class="fa-solid fa-angle-right"></i> View Cart & Checkout</a></li>
+            <li><a href="login.html"><i class="fa-solid fa-angle-right"></i> My Account / Orders</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Central Pharmacy</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MedCare Healthcare Towers, 4th Cross, 100ft Road, Bengaluru 560034</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>1800-MED-CARE (Toll-Free 24/7)</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>support@medcarepharmacy.com</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Online Orders: Open 24/7 / 365 Days</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MedCare Online Pharmacy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">FDA Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="floating-whatsapp-tooltip">Chat with a Pharmacist on WhatsApp</span>
+  </a>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent-banner" id="cookieConsentBanner" role="dialog" aria-label="Cookie Preferences">
+    <div class="cookie-content-row">
+      <i class="fa-solid fa-cookie-bite cookie-icon"></i>
+      <div class="cookie-text">
+        <h5>We Value Your Privacy</h5>
+        <p>We use essential cookies and encrypted clinical storage to ensure safe prescription verification and faster delivery.</p>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie-decline" id="btnDeclineCookies">Decline</button>
+      <button class="btn-cookie-accept" id="btnAcceptCookies">Accept All</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/global-widgets.js"></script>
+</body>
+</html>

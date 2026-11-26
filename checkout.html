@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout | MedCare Online Pharmacy</title>
+  <meta name="description" content="Complete your medical order with MedCare secure checkout. 256-bit encrypted payments, flexible address selection, and fast doorstep delivery.">
+
+  <!-- Google Fonts: Poppins (Headings) & Roboto (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Free Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Shared Stylesheet & Checkout Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+  <!-- Minimal Checkout Header -->
+  <header class="checkout-header">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+        <span>MedCare<span class="logo-plus">+</span></span>
+      </a>
+
+      <div class="checkout-security-badge">
+        <i class="fa-solid fa-lock text-success fs-5"></i>
+        <div>
+          <strong class="d-block small">100% SECURE CHECKOUT</strong>
+          <span class="text-muted" style="font-size: 0.72rem;">256-Bit SSL Encryption</span>
+        </div>
+      </div>
+
+      <div class="checkout-help-link d-none d-md-flex align-items-center gap-3">
+        <a href="cart.html" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-arrow-left me-1"></i> Back to Cart</a>
+        <div class="d-flex align-items-center gap-2">
+          <i class="fa-solid fa-headset text-primary"></i>
+          <span class="small">Need Help? <strong>1800-MED-CARE</strong></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="checkout-main py-4">
+    <div class="container">
+      
+      <!-- STEP INDICATOR & PROGRESS BAR: Address → Payment → Review → Confirmation -->
+      <div class="checkout-steps-wrapper mb-4">
+        <div class="steps-progress-track">
+          <div class="steps-progress-fill" id="checkoutProgressBar" style="width: 15%;"></div>
+        </div>
+
+        <div class="steps-indicators-row">
+          <!-- Step 1 -->
+          <div class="step-indicator-item active" id="stepIndicator1" data-step="1">
+            <div class="step-circle"><i class="fa-solid fa-location-dot"></i></div>
+            <span class="step-label">1. Address</span>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-indicator-item" id="stepIndicator2" data-step="2">
+            <div class="step-circle"><i class="fa-solid fa-basket-shopping"></i></div>
+            <span class="step-label">2. Order Summary</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-indicator-item" id="stepIndicator3" data-step="3">
+            <div class="step-circle"><i class="fa-solid fa-credit-card"></i></div>
+            <span class="step-label">3. Payment</span>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-indicator-item" id="stepIndicator4" data-step="4">
+            <div class="step-circle"><i class="fa-solid fa-circle-check"></i></div>
+            <span class="step-label">4. Confirmation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Layout: Left 68% Multi-step Panel, Right 32% Order Summary Sidebar -->
+      <div class="checkout-layout-grid">
+        
+        <!-- LEFT COLUMN: STEP CONTENT PANELS -->
+        <div class="checkout-left-column">
+          
+          <!-- ==========================================================================
+               STEP 1 - DELIVERY ADDRESS
+               ========================================================================== -->
+          <div class="checkout-step-panel active" id="stepPanel1">
+            <div class="checkout-panel-card">
+              <div class="panel-header-line">
+                <h3><i class="fa-solid fa-location-dot text-primary me-2"></i> Select Delivery Address</h3>
+                <button type="button" class="btn btn-outline-primary btn-sm" id="btnToggleNewAddressForm">
+                  <i class="fa-solid fa-plus me-1"></i> Add New Address
+                </button>
+              </div>
+
+              <!-- Saved Addresses List (Radio Selection) -->
+              <div class="saved-addresses-grid" id="savedAddressesGrid">
+                <!-- Dynamically populated via checkout.js -->
+              </div>
+
+              <!-- New Address Form (Collapsible / Toggleable) -->
+              <div class="new-address-form-box mt-4" id="newAddressFormContainer" style="display: none;">
+                <h4 class="mb-3 text-primary"><i class="fa-solid fa-house-chimney me-2"></i> Add Delivery Address</h4>
+                <form id="newAddressForm">
+                  <div class="row g-3">
+                    <div class="form-group col-md-6 mb-2">
+                      <label class="form-label">Full Name *</label>
+                      <input type="text" id="newAddrName" class="form-control" placeholder="e.g. Rahul Sharma" required>
+                    </div>
+                    <div class="form-group col-md-6 mb-2">
+                      <label class="form-label">Phone Number *</label>
+                      <input type="tel" id="newAddrPhone" maxlength="10" class="form-control" placeholder="10-digit mobile number" required>
+                    </div>
+                    <div class="form-group col-md-6 mb-2">
+                      <label class="form-label">House / Flat / Building No. *</label>
+                      <input type="text" id="newAddrHouse" class="form-control" placeholder="Flat 402, Sunshine Towers" required>
+                    </div>
+                    <div class="form-group col-md-6 mb-2">
+                      <label class="form-label">Street / Area / Landmark *</label>
+                      <input type="text" id="newAddrStreet" class="form-control" placeholder="Near Apollo Clinic, Koramangala" required>
+                    </div>
+                    <div class="form-group col-md-4 mb-2">
+                      <label class="form-label">City *</label>
+                      <input type="text" id="newAddrCity" class="form-control" placeholder="Bengaluru" required>
+                    </div>
+                    <div class="form-group col-md-4 mb-2">
+                      <label class="form-label">State *</label>
+                      <input type="text" id="newAddrState" class="form-control" placeholder="Karnataka" required>
+                    </div>
+                    <div class="form-group col-md-4 mb-2">
+                      <label class="form-label">Pincode *</label>
+                      <input type="text" id="newAddrPin" maxlength="6" class="form-control" placeholder="560034" required>
+                    </div>
+                    <div class="form-group col-12 mb-2">
+                      <label class="form-label d-block">Address Type</label>
+                      <div class="d-flex gap-3">
+                        <label class="addr-type-pill">
+                          <input type="radio" name="addrType" value="Home" checked>
+                          <span><i class="fa-solid fa-house me-1"></i> Home (7 AM - 9 PM)</span>
+                        </label>
+                        <label class="addr-type-pill">
+                          <input type="radio" name="addrType" value="Office">
+                          <span><i class="fa-solid fa-briefcase me-1"></i> Office (9 AM - 6 PM)</span>
+                        </label>
+                        <label class="addr-type-pill">
+                          <input type="radio" name="addrType" value="Other">
+                          <span><i class="fa-solid fa-location-pin me-1"></i> Other</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group col-12 mb-3">
+                      <label class="custom-checkbox-row">
+                        <input type="checkbox" id="setAsDefaultAddr" checked>
+                        <span>Set as Default Delivery Address</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary px-4">Save &amp; Select Address</button>
+                    <button type="button" class="btn btn-outline-secondary" id="btnCancelNewAddress">Cancel</button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Step 1 Bottom Action -->
+              <div class="step-footer-actions mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
+                <a href="cart.html" class="btn btn-outline-secondary">
+                  <i class="fa-solid fa-arrow-left me-1"></i> Return to Cart
+                </a>
+                <button type="button" class="btn btn-primary px-4 py-2 fw-bold" id="btnContinueToSummary">
+                  Deliver to This Address &amp; Review <i class="fa-solid fa-arrow-right ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               STEP 2 - ORDER SUMMARY (Review items added to cart)
+               ========================================================================== -->
+          <div class="checkout-step-panel" id="stepPanel2">
+            <div class="checkout-panel-card">
+              <div class="panel-header-line">
+                <h3><i class="fa-solid fa-basket-shopping text-primary me-2"></i> Order Summary (<span id="reviewItemsCount">0</span> Items)</h3>
+                <span class="badge bg-light text-success fw-bold"><i class="fa-solid fa-circle-check"></i> Step 2 of 3</span>
+              </div>
+
+              <!-- Delivery Summary Box -->
+              <div class="review-summary-card mb-3">
+                <div class="review-card-top">
+                  <h5><i class="fa-solid fa-location-dot text-primary me-2"></i> Delivering To:</h5>
+                  <button type="button" class="btn-change-link" id="btnChangeAddress">Change Address</button>
+                </div>
+                <div id="reviewAddressDisplay">
+                  <!-- Populated via JS -->
+                </div>
+                <div class="expected-delivery-banner mt-2">
+                  <i class="fa-solid fa-truck-fast text-primary me-2"></i>
+                  <span>Guaranteed Delivery: <strong>Tomorrow by 3:00 PM</strong> (Express Contactless Dispatch)</span>
+                </div>
+              </div>
+
+              <!-- Prescription Warning in Review if needed -->
+              <div class="cart-rx-notice mb-3" id="reviewRxNotice" style="display: none;">
+                <i class="fa-solid fa-file-prescription text-warning fs-3"></i>
+                <div>
+                  <strong>Prescription Attached &amp; Validated</strong>
+                  <p class="small text-muted m-0">Our clinical pharmacist will verify doses against batch safety standards prior to dispatch.</p>
+                </div>
+              </div>
+
+              <!-- Items Detailed List in Step 2 -->
+              <div class="review-items-card mb-4">
+                <h5 class="mb-3">Medicines &amp; Healthcare Items in Cart</h5>
+                <div class="review-items-list" id="reviewItemsList">
+                  <!-- Populated via JS with thumbnail, quantity stepper, price, and remove option -->
+                </div>
+              </div>
+
+              <!-- Step 2 Bottom Action -->
+              <div class="step-footer-actions pt-3 border-top d-flex justify-content-between align-items-center">
+                <button type="button" class="btn btn-outline-secondary" id="btnBackToAddress">
+                  <i class="fa-solid fa-arrow-left me-1"></i> Back to Address
+                </button>
+                <button type="button" class="btn btn-primary px-4 py-2 fw-bold" id="btnContinueToPayment">
+                  Continue to Payment Options <i class="fa-solid fa-arrow-right ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               STEP 3 - PAYMENT METHOD
+               ========================================================================== -->
+          <div class="checkout-step-panel" id="stepPanel3">
+            <div class="checkout-panel-card">
+              <div class="panel-header-line">
+                <h3><i class="fa-solid fa-credit-card text-primary me-2"></i> Select Payment Method</h3>
+                <span class="small text-muted"><i class="fa-solid fa-shield-halved text-success"></i> 256-Bit Encrypted</span>
+              </div>
+
+              <!-- Quick Order & Address Recap -->
+              <div class="review-summary-card mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="text-muted small d-block">Delivering to: <strong id="paymentAddressName">Himanshu</strong></span>
+                    <span class="text-muted small">Total Payable Amount: <strong class="text-primary fs-6" id="paymentTotalAmount">₹0</strong></span>
+                  </div>
+                  <button type="button" class="btn-change-link" id="btnChangeToSummary">Review Items</button>
+                </div>
+              </div>
+
+              <!-- Payment Options Accordion/Radio List -->
+              <div class="payment-methods-accordion" id="paymentMethodsGroup">
+                
+                <!-- Option 1: Credit / Debit Card -->
+                <div class="payment-method-option active" data-method="card">
+                  <label class="payment-option-header">
+                    <input type="radio" name="paymentOption" value="card" checked>
+                    <span class="payment-title-wrap">
+                      <strong>Credit / Debit Card</strong>
+                      <small class="text-muted d-block">Visa, Mastercard, RuPay, Maestro</small>
+                    </span>
+                    <div class="payment-brand-icons ms-auto">
+                      <i class="fa-brands fa-cc-visa text-primary fs-4"></i>
+                      <i class="fa-brands fa-cc-mastercard text-danger fs-4"></i>
+                    </div>
+                  </label>
+
+                  <div class="payment-subform" id="cardSubform">
+                    <div class="row g-3">
+                      <div class="col-12 mb-2">
+                        <label class="form-label">Card Number *</label>
+                        <div class="input-with-icon">
+                          <i class="fa-regular fa-credit-card"></i>
+                          <input type="text" id="cardNumInput" maxlength="19" class="form-control" placeholder="4532 •••• •••• 8912">
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <label class="form-label">Cardholder Name *</label>
+                        <input type="text" id="cardHolderInput" class="form-control" placeholder="Name as printed on card">
+                      </div>
+                      <div class="col-md-3 col-6 mb-2">
+                        <label class="form-label">Expiry *</label>
+                        <input type="text" id="cardExpiryInput" maxlength="5" class="form-control" placeholder="MM/YY">
+                      </div>
+                      <div class="col-md-3 col-6 mb-2">
+                        <label class="form-label">CVV *</label>
+                        <input type="password" id="cardCvvInput" maxlength="3" class="form-control" placeholder="•••">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Option 2: UPI -->
+                <div class="payment-method-option" data-method="upi">
+                  <label class="payment-option-header">
+                    <input type="radio" name="paymentOption" value="upi">
+                    <span class="payment-title-wrap">
+                      <strong>UPI (Google Pay, PhonePe, Paytm, BHIM)</strong>
+                      <small class="text-muted d-block">Instant, Zero Transaction Fee</small>
+                    </span>
+                    <i class="fa-solid fa-qrcode text-success fs-4 ms-auto"></i>
+                  </label>
+
+                  <div class="payment-subform" id="upiSubform" style="display: none;">
+                    <label class="form-label">Enter UPI ID / VPA *</label>
+                    <div class="d-flex gap-2 mb-2">
+                      <input type="text" id="upiIdInput" class="form-control" placeholder="e.g. mobile@okhdfcbank">
+                      <button type="button" class="btn btn-outline-primary" id="btnVerifyUpi">Verify</button>
+                    </div>
+                    <small class="text-muted">A payment request will be sent to your UPI application.</small>
+                  </div>
+                </div>
+
+                <!-- Option 3: Net Banking -->
+                <div class="payment-method-option" data-method="netbanking">
+                  <label class="payment-option-header">
+                    <input type="radio" name="paymentOption" value="netbanking">
+                    <span class="payment-title-wrap">
+                      <strong>Net Banking</strong>
+                      <small class="text-muted d-block">All Major Indian Banks Supported</small>
+                    </span>
+                    <i class="fa-solid fa-building-columns text-info fs-4 ms-auto"></i>
+                  </label>
+
+                  <div class="payment-subform" id="netbankingSubform" style="display: none;">
+                    <label class="form-label">Select Your Bank *</label>
+                    <select id="bankSelect" class="form-control">
+                      <option value="HDFC">HDFC Bank</option>
+                      <option value="SBI">State Bank of India</option>
+                      <option value="ICICI">ICICI Bank</option>
+                      <option value="Axis">Axis Bank</option>
+                      <option value="Kotak">Kotak Mahindra Bank</option>
+                      <option value="Other">Other Nationalized Bank</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Option 4: Digital Wallets -->
+                <div class="payment-method-option" data-method="wallet">
+                  <label class="payment-option-header">
+                    <input type="radio" name="paymentOption" value="wallet">
+                    <span class="payment-title-wrap">
+                      <strong>Digital Wallets</strong>
+                      <small class="text-muted d-block">Paytm Wallet, Amazon Pay, Mobikwik</small>
+                    </span>
+                    <i class="fa-solid fa-wallet text-secondary fs-4 ms-auto"></i>
+                  </label>
+
+                  <div class="payment-subform" id="walletSubform" style="display: none;">
+                    <select id="walletSelect" class="form-control">
+                      <option value="Paytm">Paytm Wallet</option>
+                      <option value="AmazonPay">Amazon Pay Balance</option>
+                      <option value="Mobikwik">Mobikwik Wallet</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Option 5: Cash on Delivery (COD) -->
+                <div class="payment-method-option" data-method="cod">
+                  <label class="payment-option-header">
+                    <input type="radio" name="paymentOption" value="cod">
+                    <span class="payment-title-wrap">
+                      <strong>Cash on Delivery (COD)</strong>
+                      <small class="text-muted d-block">Pay with Cash or UPI upon doorstep delivery</small>
+                    </span>
+                    <i class="fa-solid fa-money-bill-wave text-success fs-4 ms-auto"></i>
+                  </label>
+
+                  <div class="payment-subform" id="codSubform" style="display: none;">
+                    <p class="small text-muted m-0">
+                      <i class="fa-solid fa-circle-info text-primary me-1"></i>
+                      Please keep exact cash ready or scan the delivery executive's UPI QR code at the time of delivery.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Step 3 Bottom Action -->
+              <div class="step-footer-actions mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
+                <button type="button" class="btn btn-outline-secondary" id="btnBackToSummary">
+                  <i class="fa-solid fa-arrow-left me-1"></i> Back to Order Summary
+                </button>
+                <button type="button" class="btn-place-order" id="btnPlaceOrder">
+                  <i class="fa-solid fa-lock me-2"></i> Pay &amp; Place Order • <span id="btnPlaceOrderTotal">₹0</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               STEP 4 - CONFIRMATION (Order Success Screen)
+               ========================================================================== -->
+          <div class="checkout-step-panel" id="stepPanel4">
+            <div class="checkout-panel-card text-center py-5">
+              <div class="order-success-check-circle mb-3">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <h2 class="order-success-title">Order Placed Successfully!</h2>
+              <p class="text-muted">Thank you for ordering with MedCare Online Pharmacy. Your medicines are being prepared.</p>
+
+              <div class="order-ref-badge-card my-4">
+                <span class="ref-label">Order Reference ID:</span>
+                <span class="ref-code" id="confirmedOrderId">#MED-ORD-92814</span>
+                <span class="ref-time" id="confirmedOrderTime">October 19, 2026 • 10:45 AM</span>
+              </div>
+
+              <div class="order-dispatch-details-box text-start mx-auto mb-4" style="max-width: 540px;">
+                <div class="dispatch-row">
+                  <i class="fa-solid fa-truck-ramp-box text-primary"></i>
+                  <div>
+                    <strong>Estimated Doorstep Delivery:</strong>
+                    <p class="m-0 text-muted">Tomorrow between 1:00 PM – 4:00 PM</p>
+                  </div>
+                </div>
+                <div class="dispatch-row mt-3">
+                  <i class="fa-solid fa-receipt text-success"></i>
+                  <div>
+                    <strong>Tax Invoice &amp; Live Tracking:</strong>
+                    <p class="m-0 text-muted">Sent to your registered email &amp; SMS tracking link dispatched.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center gap-3">
+                <button type="button" class="btn btn-outline-primary" onclick="window.print()">
+                  <i class="fa-solid fa-print me-1"></i> Print / Download Invoice
+                </button>
+                <a href="shop.html" class="btn btn-primary px-4">
+                  <i class="fa-solid fa-shop me-1"></i> Continue Shopping
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: ORDER SUMMARY SIDEBAR (Visible in all steps) -->
+        <div class="checkout-right-column">
+          <div class="checkout-summary-card">
+            <h4 class="checkout-summary-title">Order Summary</h4>
+
+            <!-- Scrollable Items List in Sidebar -->
+            <div class="checkout-sidebar-items-scroll" id="sidebarItemsList">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- Price Breakdown in Sidebar -->
+            <div class="checkout-sidebar-breakdown">
+              <div class="summary-row">
+                <span class="summary-label">Items Subtotal:</span>
+                <span class="summary-value" id="sideSubtotal">₹0</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">MRP Discount:</span>
+                <span class="summary-value text-success" id="sideMrpDiscount">-₹0</span>
+              </div>
+              <div class="summary-row" id="sideCouponRow" style="display: none;">
+                <span class="summary-label">Coupon Applied:</span>
+                <span class="summary-value text-success" id="sideCouponDiscount">-₹0</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Delivery Charges:</span>
+                <span class="summary-value" id="sideDeliveryCharges">FREE</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Taxes &amp; GST:</span>
+                <span class="summary-value" id="sideTaxes">₹0</span>
+              </div>
+
+              <div class="summary-total-divider"></div>
+
+              <div class="summary-row total-row">
+                <span class="total-label">Total Amount:</span>
+                <span class="total-value" id="sideTotal">₹0</span>
+              </div>
+            </div>
+
+            <div class="sidebar-trust-box mt-3">
+              <i class="fa-solid fa-shield-halved text-success me-2"></i>
+              <span>Guaranteed Safe Delivery • Certified Pharmacy DL: KA-2024-98412</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Standard Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: About MedCare -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+            <span>MedCare<span class="logo-plus">+</span></span>
+          </div>
+          <p class="footer-desc">
+            India's most trusted online pharmacy offering 100% genuine certified medicines, OTC wellness essentials, and rapid doorstep delivery.
+          </p>
+          <div class="footer-cert-badges">
+            <span class="badge bg-success-subtle text-success me-2"><i class="fa-solid fa-award"></i> WHO-GMP Certified</span>
+            <span class="badge bg-primary-subtle text-primary"><i class="fa-solid fa-user-doctor"></i> Licensed Pharmacists</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Explore Catalog</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> All Medicines</a></li>
+            <li><a href="search.html?tab=medicines"><i class="fa-solid fa-angle-right"></i> Prescription Drugs</a></li>
+            <li><a href="search.html?tab=health"><i class="fa-solid fa-angle-right"></i> Health Supplements</a></li>
+            <li><a href="prescription.html"><i class="fa-solid fa-angle-right"></i> Upload Prescription</a></li>
+            <li><a href="search.html"><i class="fa-solid fa-angle-right"></i> Search Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4>Company &amp; Care</h4>
+          <ul class="footer-links">
+            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Our Pharmacy</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Support</a></li>
+            <li><a href="contact.html#business-hours"><i class="fa-solid fa-angle-right"></i> Pharmacy Timings</a></li>
+            <li><a href="contact.html#faq-section"><i class="fa-solid fa-angle-right"></i> Order &amp; Delivery FAQs</a></li>
+            <li><a href="admin.html"><i class="fa-solid fa-angle-right"></i> Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Central Pharmacy</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MedCare Healthcare Towers, 4th Cross, 100ft Road, Bengaluru 560034</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>1800-MED-CARE (Toll-Free 24/7)</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>support@medcarepharmacy.com</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Online Orders: Open 24/7 / 365 Days</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MedCare Online Pharmacy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">FDA Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="floating-whatsapp-tooltip">Chat with a Pharmacist on WhatsApp</span>
+  </a>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent-banner" id="cookieConsentBanner" role="dialog" aria-label="Cookie Preferences">
+    <div class="cookie-content-row">
+      <i class="fa-solid fa-cookie-bite cookie-icon"></i>
+      <div class="cookie-text">
+        <h5>We Value Your Privacy</h5>
+        <p>We use essential cookies and encrypted clinical storage to ensure safe prescription verification and faster delivery.</p>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie-decline" id="btnDeclineCookies">Decline</button>
+      <button class="btn-cookie-accept" id="btnAcceptCookies">Accept All</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/global-widgets.js"></script>
+</body>
+</html>

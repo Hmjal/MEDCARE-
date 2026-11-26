@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedCare+ Online Pharmacy | Your Health, Our Priority — Medicines Delivered Fast</title>
+  <meta name="description"
+    content="Order 100% genuine medicines online with MedCare+. Upload prescriptions, get 2-hour express delivery, and save up to 20% on healthcare products. Trusted by 2M+ customers.">
+  <meta name="keywords"
+    content="online pharmacy, order medicines online, prescription upload, healthcare delivery, MedCare">
+  <meta name="theme-color" content="#0057FF">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MedCare+ Online Pharmacy">
+  <meta property="og:description"
+    content="India's most trusted online pharmacy. Order medicines, upload prescriptions, get doorstep delivery.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Poppins + Roboto + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =========================================================
+       REDESIGN ENHANCEMENT STYLES — 3D / Glassmorphism Layer
+       ========================================================= */
+
+    /* ── Announcement Bar ── */
+    #announcementBar {
+      position: relative;
+      background: linear-gradient(90deg, #0a0f2c 0%, #0d2247 40%, #0a1a3a 100%);
+      color: #e2f0ff;
+      font-size: 0.78rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.02em;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+      z-index: 1100;
+      border-bottom: 1px solid rgba(0, 111, 255, 0.25);
+      box-shadow: 0 2px 20px rgba(0, 87, 255, 0.15);
+    }
+
+    .announcement-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px 0 16px;
+      height: 38px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .announcement-icons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+      color: #60a5fa;
+    }
+
+    .announcement-icons span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .announcement-icons i {
+      font-size: 0.8rem;
+    }
+
+    .announcement-marquee-wrap {
+      flex: 1;
+      overflow: hidden;
+      margin: 0 14px;
+      min-width: 0;
+      mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+    }
+
+    .announcement-marquee {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marqueeScroll 28s linear infinite;
+      color: #c7d9f7;
+      font-weight: 500;
+    }
+
+    .announcement-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    #closeAnnouncementBar {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 1rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 4px 6px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    #closeAnnouncementBar:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ── Trust Stats Bar ── */
+    .trust-stats-bar {
+      background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 50%, #f5f0ff 100%);
+      border-top: 1px solid rgba(0, 87, 255, 0.08);
+      border-bottom: 1px solid rgba(0, 87, 255, 0.08);
+      padding: 28px 0;
+    }
+
+    .trust-stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      padding: 20px 16px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 87, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 87, 255, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 87, 255, 0.03), transparent);
+      border-radius: inherit;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 87, 255, 0.12);
+    }
+
+    .stat-item i {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #0057FF, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0057FF, #0096ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: #64748b;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Enhanced Features Section ── */
+    .features-section {
+      padding: 60px 0;
+      background: #fff;
+    }
+
+    .features-section .section-header-center {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .features-section .section-header-center h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0f172a;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .features-section .section-header-center p {
+      color: #64748b;
+      max-width: 520px;
+      margin: 8px auto 0;
+    }
+
+    /* ── Hero Section 3D Scroll Indicator ── */
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.7rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    .hero-scroll-indicator i {
+      font-size: 1.1rem;
+    }
+
+    @keyframes scrollBounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+        opacity: 1;
+      }
+    }
+
+    /* ── Prescription RX Banner 3D Card Float ── */
+    @keyframes rxCardFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(-2deg);
+      }
+    }
+
+    .rx-illustration-card {
+      animation: rxCardFloat 4s ease-in-out infinite;
+    }
+
+    /* ── How It Works — Dashed Connecting Lines ── */
+    .steps-container {
+      position: relative;
+    }
+
+    .steps-container::after {
+      content: '';
+      position: absolute;
+      top: 52px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 2px;
+      border-top: 2px dashed rgba(0, 87, 255, 0.25);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .step-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── App Download Section ── */
+    .app-download-section {
+      background: linear-gradient(135deg, #0a0f2c 0%, #0d2247 50%, #131e45 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-download-section::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 150, 255, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .app-download-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 87, 255, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .app-download-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-phone-mockup {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app-phone-frame {
+      width: 220px;
+      height: 380px;
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border-radius: 36px;
+      border: 3px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 0 0 6px rgba(0, 87, 255, 0.15),
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      animation: phoneFloat 3.5s ease-in-out infinite;
+    }
+
+    @keyframes phoneFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotateX(4deg) rotateY(-8deg);
+      }
+
+      50% {
+        transform: translateY(-16px) rotateX(4deg) rotateY(-8deg);
+      }
+    }
+
+    .app-phone-frame::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      width: 60px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .app-phone-icon {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #0057FF, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .app-phone-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .app-download-info {
+      color: #e2f0ff;
+    }
+
+    .app-badge {
+      display: inline-block;
+      background: rgba(0, 87, 255, 0.2);
+      border: 1px solid rgba(0, 111, 255, 0.35);
+      color: #60a5fa;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .app-download-info h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .app-download-info h2 span {
+      background: linear-gradient(90deg, #0096ff, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .app-download-info p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .app-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .app-feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .app-feature-list li i {
+      color: #22d3ee;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .app-store-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn-app-store {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-app-store:hover {
+      background: rgba(0, 87, 255, 0.3);
+      border-color: rgba(0, 111, 255, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 87, 255, 0.3);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .btn-app-store i {
+      font-size: 1.6rem;
+    }
+
+    .btn-app-store-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-app-store-text small {
+      font-size: 0.65rem;
+      opacity: 0.75;
+    }
+
+    .btn-app-store-text strong {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .app-qr-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      max-width: 280px;
+    }
+
+    .app-qr-box {
+      width: 64px;
+      height: 64px;
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .app-qr-box i {
+      font-size: 2.4rem;
+      color: #0a0f2c;
+    }
+
+    .app-qr-info {
+      color: #94a3b8;
+      font-size: 0.78rem;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+    }
+
+    .app-qr-info strong {
+      display: block;
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      margin-bottom: 2px;
+    }
+
+    /* ── Responsive Fixes ── */
+    @media (max-width: 1100px) {
+      .announcement-icons span:nth-child(n+3) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .trust-stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .app-download-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .app-phone-mockup {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .announcement-icons {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .trust-stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .app-download-info h2 {
+        font-size: 1.8rem;
+      }
+
+      .steps-container::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===========================================================================
+       SECTION 1: TOP ANNOUNCEMENT BAR
+       =========================================================================== -->
+  <aside id="announcementBar" role="banner" aria-label="Promotions and announcements">
+    <div class="announcement-inner">
+      <!-- Quick Info Icons -->
+      <div class="announcement-icons">
+        <span><i class="fa-solid fa-phone-volume"></i> 1800-MED-CARE</span>
+        <span><i class="fa-solid fa-truck-fast"></i> 2-Hr Metro</span>
+        <span><i class="fa-solid fa-shield-halved"></i> Genuine</span>
+        <span><i class="fa-solid fa-file-medical"></i> Rx 15 Min</span>
+      </div>
+
+      <!-- Scrolling Marquee -->
+      <div class="announcement-marquee-wrap" aria-live="polite">
+        <span class="announcement-marquee">
+          🚀 Free Delivery on orders above ₹500 &nbsp;&nbsp;|&nbsp;&nbsp;
+          ⚡ 2-Hour Express Delivery in Metro Cities &nbsp;&nbsp;|&nbsp;&nbsp;
+          💊 20% OFF on First Order — Use: <strong>MEDCARE20</strong> &nbsp;&nbsp;|&nbsp;&nbsp;
+          📋 Upload Prescription &amp; Get Medicines in 15 Mins &nbsp;&nbsp;|&nbsp;&nbsp;
+          🏆 Trusted by 2M+ Customers &nbsp;&nbsp;|&nbsp;&nbsp;
+          🚀 Free Delivery on orders above ₹500 &nbsp;&nbsp;|&nbsp;&nbsp;
+          ⚡ 2-Hour Express Delivery in Metro Cities &nbsp;&nbsp;|&nbsp;&nbsp;
+          💊 20% OFF on First Order — Use: <strong>MEDCARE20</strong>
+        </span>
+      </div>
+
+      <!-- Close Button -->
+      <button id="closeAnnouncementBar" aria-label="Close announcement bar" title="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===========================================================================
+       SECTION 2: STICKY GLASS NAVBAR
+       =========================================================================== -->
+  <header class="main-header" id="mainHeader" role="banner">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+
+        <!-- Logo -->
+        <a href="index.html" class="logo" aria-label="MedCare+ Home">
+          <div class="logo-icon-wrap">
+            <i class="fa-solid fa-notes-medical"></i>
+          </div>
+          <span>MedCare<span class="logo-plus">+</span></span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <ul class="nav-menu" role="list">
+          <li role="listitem"><a href="index.html" class="nav-link active">Home</a></li>
+          <li role="listitem"><a href="shop.html" class="nav-link">Medicines</a></li>
+          <li role="listitem">
+            <a href="prescription.html" class="nav-link">
+              Upload Rx
+              <span class="nav-link-badge">Fast</span>
+            </a>
+          </li>
+          <li role="listitem"><a href="search.html" class="nav-link">Search</a></li>
+          <li role="listitem"><a href="about.html" class="nav-link">About Us</a></li>
+          <li role="listitem"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Header Search Bar -->
+        <div class="header-search" role="search">
+          <div class="search-input-wrapper">
+            <input type="text" id="searchInput" placeholder="Search medicines, brands, salt..." autocomplete="off"
+              aria-label="Search medicines" aria-controls="searchDropdown" aria-autocomplete="list">
+            <button class="search-btn" aria-label="Search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="search-dropdown" id="searchDropdown" role="listbox" aria-label="Search suggestions"></div>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Cart Button -->
+          <button class="btn-header-cart" id="cartBtn" aria-label="Open Shopping Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Cart</span>
+            <span class="cart-count-badge" style="display: none;">0</span>
+          </button>
+
+          <!-- User Greeting (populated by navbar.js when logged in) -->
+          <div id="userGreeting" aria-live="polite"></div>
+
+          <!-- Login Button -->
+          <a href="login.html" class="btn-login" id="loginBtn" aria-label="Login or Register">
+            <i class="fa-regular fa-circle-user"></i>
+            <span class="login-btn-label">Login</span>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button class="btn-mobile-menu" id="mobileMenuBtn" aria-label="Open mobile menu" aria-expanded="false"
+            aria-controls="mobileNav">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="logo" aria-label="MedCare+ Home">
+        <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+        <span>MedCare<span class="logo-plus">+</span></span>
+      </a>
+      <button class="btn-close-mobile" id="closeMobileNav" aria-label="Close mobile menu">&times;</button>
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="search-input-wrapper mb-3" style="position: relative;">
+      <input type="text" id="mobileSearchInput" placeholder="Search medicines..." class="form-control"
+        aria-label="Search medicines on mobile">
+    </div>
+
+    <ul class="mobile-nav-menu" role="list">
+      <li><a href="index.html" class="mobile-nav-link active"><i class="fa-solid fa-house text-primary"></i> Home</a>
+      </li>
+      <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-capsules text-primary"></i> Shop
+          Medicines</a></li>
+      <li><a href="search.html" class="mobile-nav-link"><i class="fa-solid fa-magnifying-glass text-primary"></i> Search
+          Catalog</a></li>
+      <li><a href="prescription.html" class="mobile-nav-link"><i class="fa-solid fa-file-prescription text-primary"></i>
+          Upload Prescription</a></li>
+      <li><a href="cart.html" class="mobile-nav-link"><i class="fa-solid fa-cart-shopping text-primary"></i> Shopping
+          Cart</a></li>
+      <li><a href="checkout.html" class="mobile-nav-link text-success fw-bold"><i
+            class="fa-solid fa-lock text-success"></i> Proceed to Checkout</a></li>
+      <li><a href="#todays-deals" class="mobile-nav-link"><i class="fa-solid fa-tag text-primary"></i> Today's Deals</a>
+      </li>
+      <li><a href="#health-blog" class="mobile-nav-link"><i class="fa-solid fa-newspaper text-primary"></i> Health
+          Blog</a></li>
+      <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info text-primary"></i> About Us</a>
+      </li>
+      <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope text-primary"></i> Contact
+          Us</a></li>
+      <li><a href="dashboard.html" class="mobile-nav-link"><i class="fa-solid fa-gauge text-primary"></i> My
+          Dashboard</a></li>
+      <li><a href="admin.html" class="mobile-nav-link"><i class="fa-solid fa-user-shield text-primary"></i> Admin
+          Portal</a></li>
+    </ul>
+
+    <div class="mt-auto">
+      <a href="checkout.html" class="btn btn-success w-100 mb-2 fw-bold">
+        <i class="fa-solid fa-lock me-2"></i> Go to Checkout
+      </a>
+      <a href="login.html" class="btn btn-primary w-100 mb-2" id="mobileLoginBtn">
+        <i class="fa-solid fa-right-to-bracket me-2"></i> Account Login
+      </a>
+      <div class="text-center text-muted small">
+        <i class="fa-solid fa-headset me-1"></i> Need help? Call 1800-MED-CARE
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- =========================================================================
+         SECTION 3: HERO SECTION (100vh, 4 Slides)
+         ========================================================================= -->
+    <section class="hero-section" aria-label="Featured Promotions">
+      <div class="hero-slider-track">
+
+        <!-- Slide 1: Order Medicines Online -->
+        <div class="hero-slide active"
+          style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80');">
+          <div class="hero-overlay"></div>
+          <div class="container">
+            <div class="hero-content">
+              <span class="hero-tagline"><i class="fa-solid fa-heart-pulse"></i> Trusted by 2M+ Families</span>
+              <h1 class="hero-title"><span class="typing-text" id="heroTypingText">Order Medicines Online</span><span
+                  class="typing-cursor">|</span></h1>
+              <p class="hero-subtitle">Get 100% authentic prescription &amp; OTC medicines delivered safely to your
+                doorstep with guaranteed cold-chain protection.</p>
+              <div class="hero-cta-group">
+                <a href="shop.html" class="btn-hero btn-hero-primary">
+                  <i class="fa-solid fa-cart-shopping"></i> Shop Now
+                </a>
+                <button class="btn-hero btn-hero-secondary trigger-upload-rx">
+                  <i class="fa-solid fa-file-arrow-up"></i> Quick Rx Upload
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Upload Prescription -->
+        <div class="hero-slide"
+          style="background-image: url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1600&q=80');">
+          <div class="hero-overlay"></div>
+          <div class="container">
+            <div class="hero-content">
+              <span class="hero-tagline"><i class="fa-solid fa-stethoscope"></i> Licensed Pharmacists on Duty</span>
+              <h2 class="hero-title">Upload Prescription &amp; <span>Get Medicines</span></h2>
+              <p class="hero-subtitle">Simply snap a picture of your doctor's slip. Our registered clinical pharmacists
+                verify doses and dispatch your order in minutes.</p>
+              <div class="hero-cta-group">
+                <button class="btn-hero btn-hero-primary trigger-upload-rx">
+                  <i class="fa-solid fa-cloud-arrow-up"></i> Upload Now
+                </button>
+                <a href="#how-it-works" class="btn-hero btn-hero-secondary">
+                  <i class="fa-solid fa-play"></i> How It Works
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: 20% Off First Order -->
+        <div class="hero-slide"
+          style="background-image: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1600&q=80');">
+          <div class="hero-overlay"></div>
+          <div class="container">
+            <div class="hero-content">
+              <span class="hero-tagline"><i class="fa-solid fa-bolt"></i> Welcome Health Deal</span>
+              <h2 class="hero-title">Flat <span>20% Off</span> on First Order</h2>
+              <p class="hero-subtitle">Use coupon code <strong>MEDCARE20</strong> at checkout and enjoy unprecedented
+                savings across top healthcare brands.</p>
+              <div class="hero-cta-group">
+                <a href="#todays-deals" class="btn-hero btn-hero-primary">
+                  <i class="fa-solid fa-gift"></i> Claim Offer
+                </a>
+                <a href="shop.html" class="btn-hero btn-hero-secondary">
+                  <i class="fa-solid fa-compass"></i> Explore Catalog
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Free Delivery -->
+        <div class="hero-slide"
+          style="background-image: url('https://images.unsplash.com/photo-1563213126-a4273aed2016?auto=format&fit=crop&w=1600&q=80');">
+          <div class="hero-overlay"></div>
+          <div class="container">
+            <div class="hero-content">
+              <span class="hero-tagline"><i class="fa-solid fa-truck"></i> Fast &amp; Contactless Dispatch</span>
+              <h2 class="hero-title">Free Delivery on Orders <span>Above ₹500</span></h2>
+              <p class="hero-subtitle">Stock up on wellness essentials, baby care, daily multivitamins, and medical
+                devices with zero delivery charges.</p>
+              <div class="hero-cta-group">
+                <a href="shop.html" class="btn-hero btn-hero-primary">
+                  <i class="fa-solid fa-box-open"></i> Start Shopping
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.hero-slider-track -->
+
+      <!-- Carousel Navigation -->
+      <div class="hero-controls">
+        <button class="hero-arrow" id="heroPrev" aria-label="Previous Slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="hero-arrow" id="heroNext" aria-label="Next Slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Dots -->
+      <div class="hero-dots" role="tablist" aria-label="Slide navigation">
+        <button class="hero-dot active" role="tab" aria-label="Go to slide 1" aria-selected="true"></button>
+        <button class="hero-dot" role="tab" aria-label="Go to slide 2" aria-selected="false"></button>
+        <button class="hero-dot" role="tab" aria-label="Go to slide 3" aria-selected="false"></button>
+        <button class="hero-dot" role="tab" aria-label="Go to slide 4" aria-selected="false"></button>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <i class="fa-solid fa-chevron-down"></i>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4: TRUST STATS BAR
+         ========================================================================= -->
+    <section class="trust-stats-bar" aria-label="Our statistics and achievements">
+      <div class="trust-stats-inner">
+        <div class="stat-item">
+          <i class="fa-solid fa-users" aria-hidden="true"></i>
+          <div class="stat-number" data-target="2000000" data-suffix="+">2M+</div>
+          <div class="stat-label">Satisfied Customers</div>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-capsules" aria-hidden="true"></i>
+          <div class="stat-number" data-target="10000" data-suffix="+">10,000+</div>
+          <div class="stat-label">Medicines Available</div>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-hospital" aria-hidden="true"></i>
+          <div class="stat-number" data-target="500" data-suffix="+">500+</div>
+          <div class="stat-label">Partner Pharmacies</div>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <div class="stat-number" data-target="99" data-suffix="%">99%</div>
+          <div class="stat-label">Customer Satisfaction</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 5: FEATURES / WHY CHOOSE US
+         ========================================================================= -->
+    <section class="features-section" aria-label="Why choose MedCare+">
+      <div class="container">
+        <div class="section-header-center">
+          <h2>Why Choose <span style="color: var(--color-primary, #0057FF);">MedCare+</span></h2>
+          <p>Professional pharmaceutical care meeting modern convenience for over 2 million Indian families.</p>
+        </div>
+        <div class="features-grid">
+          <!-- Card 1: Free Delivery -->
+          <div class="feature-card" data-tilt data-tilt-max="12" data-tilt-glare data-tilt-max-glare="0.15"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon-box feature-icon-1">
+              <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+            </div>
+            <div class="feature-info">
+              <h3>Free Delivery</h3>
+              <p>Free shipping on orders above ₹500 across 19,000+ pin codes nationwide.</p>
+            </div>
+          </div>
+          <!-- Card 2: Genuine Medicines -->
+          <div class="feature-card" data-tilt data-tilt-max="12" data-tilt-glare data-tilt-max-glare="0.15"
+            data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon-box feature-icon-2">
+              <i class="fa-solid fa-capsules" aria-hidden="true"></i>
+            </div>
+            <div class="feature-info">
+              <h3>Genuine Medicines</h3>
+              <p>100% authentic medicines sourced directly from licensed pharma manufacturers.</p>
+            </div>
+          </div>
+          <!-- Card 3: Easy Rx Upload -->
+          <div class="feature-card trigger-upload-rx" style="cursor: pointer;" role="button" tabindex="0"
+            aria-label="Upload prescription">
+            <div class="feature-icon-box feature-icon-3">
+              <i class="fa-solid fa-file-prescription" aria-hidden="true"></i>
+            </div>
+            <div class="feature-info">
+              <h3>Easy Rx Upload</h3>
+              <p>Upload &amp; order easily. Our pharmacists handle dosing and verification in 15 mins.</p>
+            </div>
+          </div>
+          <!-- Card 4: Secure Payments -->
+          <div class="feature-card" data-tilt data-tilt-max="12" data-tilt-glare data-tilt-max-glare="0.15"
+            data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-icon-box feature-icon-4">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            </div>
+            <div class="feature-info">
+              <h3>Secure Payments</h3>
+              <p>256-bit encrypted transactions via UPI, Cards, NetBanking &amp; Cash on Delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 6: SHOP BY CATEGORY
+         ========================================================================= -->
+    <section class="categories-section" id="categories" aria-label="Shop by medical category">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Curated Health Hub</span>
+          <h2 class="section-title">Shop by Category</h2>
+          <p class="section-desc">Explore our specialized health departments crafted for every wellness requirement.</p>
+        </div>
+        <!-- Populated by js/app.js -->
+        <div class="category-grid" id="categoryGrid" aria-label="Medicine categories"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 7: PRESCRIPTION UPLOAD BANNER
+         ========================================================================= -->
+    <section class="rx-banner-section" id="prescription-upload" aria-label="Prescription upload service">
+      <div class="container">
+        <div class="rx-banner-card">
+          <!-- Left: Content -->
+          <div class="rx-banner-content">
+            <span class="rx-tag"><i class="fa-solid fa-bolt"></i> Instant 3-Step Process</span>
+            <h2 class="rx-banner-title">Don't Have Time? Just Upload Your Prescription!</h2>
+            <p class="rx-banner-desc">
+              No need to search for individual drug names or struggle with complex dosages. Simply upload a photo of
+              your doctor's prescription. Our certified medical team will review it, organize your cart, and call you to
+              confirm delivery.
+            </p>
+
+            <div class="rx-perks">
+              <div class="rx-perk-item">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <span>Reviewed by Registered Pharmacists</span>
+              </div>
+              <div class="rx-perk-item">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <span>Confidential &amp; HIPAA Compliant</span>
+              </div>
+              <div class="rx-perk-item">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <span>Doorstep Delivery within Hours</span>
+              </div>
+            </div>
+
+            <button class="btn-upload-rx-cta trigger-upload-rx" aria-label="Upload prescription now">
+              <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
+              <span>Upload Prescription Now</span>
+            </button>
+          </div>
+
+          <!-- Right: 3D Visual Card -->
+          <div class="rx-banner-visual">
+            <div class="rx-illustration-card" aria-hidden="true">
+              <div class="rx-big-icon">
+                <i class="fa-solid fa-receipt"></i>
+              </div>
+              <h4 style="color: #ffffff; margin-bottom: 6px;">Prescription Desk</h4>
+              <p style="color: #e0f2fe; font-size: 0.85rem; margin-bottom: 14px;">Upload JPG, PNG, or PDF up to 10MB</p>
+              <span class="badge"
+                style="background: rgba(255,255,255,0.25); color: #fff; padding: 6px 14px; border-radius: 100px;">
+                <i class="fa-solid fa-clock"></i> Verification in 15 Mins
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 9: HOW IT WORKS
+         ========================================================================= -->
+    <section class="how-it-works-section" id="how-it-works" aria-label="How to order medicines online">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Effortless Ordering</span>
+          <h2 class="section-title">How to Order Medicines Online</h2>
+          <p class="section-desc">Experience seamless pharmaceutical care from the comfort of your living room in 4
+            simple steps.</p>
+        </div>
+
+        <div class="steps-container">
+          <!-- Step 1 -->
+          <div class="step-card" data-tilt data-tilt-max="12" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-icon-wrapper">
+              <span class="step-number">1</span>
+              <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+            </div>
+            <h3 class="step-title">Search Medicine or Upload Prescription</h3>
+            <p class="step-desc">Search through 25,000+ catalogued medicines or upload your prescription slip directly.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card" data-tilt data-tilt-max="12" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-icon-wrapper">
+              <span class="step-number">2</span>
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </div>
+            <h3 class="step-title">Add to Cart</h3>
+            <p class="step-desc">Select desired pack size, review savings, and add items to your secure digital shopping
+              cart.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card" data-tilt data-tilt-max="12" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-icon-wrapper">
+              <span class="step-number">3</span>
+              <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+            </div>
+            <h3 class="step-title">Make Payment</h3>
+            <p class="step-desc">Pay safely with UPI, Credit/Debit Cards, NetBanking, or select Cash on Delivery.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card" data-tilt data-tilt-max="12" data-aos="fade-up" data-aos-delay="400">
+            <div class="step-icon-wrapper">
+              <span class="step-number">4</span>
+              <i class="fa-solid fa-house-chimney-medical" aria-hidden="true"></i>
+            </div>
+            <h3 class="step-title">Get Delivered at Doorstep</h3>
+            <p class="step-desc">Receive tamper-evident, temperature-controlled delivery safely at your home.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 10: EXCLUSIVE DEALS (with Countdown Timer)
+         ========================================================================= -->
+    <section class="deals-section" id="todays-deals" aria-label="Today's exclusive deals and offers">
+      <div class="container">
+        <div class="deals-header-row">
+          <div>
+            <span class="section-subtitle">Mega Health Savings</span>
+            <h2 class="section-title">Exclusive Deals</h2>
+            <p class="section-desc">Grab limited-time flash discounts on premium healthcare &amp; wellness essentials.
+            </p>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div class="deal-countdown-box" aria-label="Deal countdown timer">
+            <span class="countdown-label"><i class="fa-solid fa-clock" aria-hidden="true"></i> Ends In:</span>
+            <div class="countdown-units">
+              <div class="time-block" id="timerDays" aria-label="Days remaining">00</div>
+              <span class="time-sep" aria-hidden="true">:</span>
+              <div class="time-block" id="timerHours" aria-label="Hours remaining">08</div>
+              <span class="time-sep" aria-hidden="true">:</span>
+              <div class="time-block" id="timerMinutes" aria-label="Minutes remaining">45</div>
+              <span class="time-sep" aria-hidden="true">:</span>
+              <div class="time-block" id="timerSeconds" aria-label="Seconds remaining">20</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deals Grid (populated by app.js) -->
+        <div class="deals-grid" id="dealsGrid" aria-label="Deal products"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 11: HEALTH BLOG
+         ========================================================================= -->
+    <section class="blog-section" id="health-blog" aria-label="Health tips and expert articles">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Verified Medical Insights</span>
+          <h2 class="section-title">Health Tips &amp; Expert Articles</h2>
+          <p class="section-desc">Stay informed with wellness guides, clinical facts, and preventative care tips
+            authored by certified physicians.</p>
+        </div>
+
+        <!-- Blog Grid (populated by app.js) -->
+        <div class="blog-grid" id="blogsGrid" aria-label="Blog articles"></div>
+
+        <div class="blog-action-center">
+          <button class="btn btn-outline-primary btn-lg"
+            onclick="window.medCareShowToast && window.medCareShowToast('Browsing all 80+ medical articles...', 'info')">
+            <i class="fa-solid fa-book-open-reader me-2" aria-hidden="true"></i> View All Articles
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 12: TESTIMONIALS
+         ========================================================================= -->
+    <section class="testimonials-section" id="testimonials" aria-label="Customer testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Patient Stories</span>
+          <h2 class="section-title">What Our Customers Say</h2>
+          <p class="section-desc">Over 500,000 satisfied patients rely on MedCare+ for prompt, authentic doorstep
+            pharmacy care.</p>
+        </div>
+
+        <div class="testimonials-carousel-container">
+          <!-- Populated by app.js -->
+          <div class="testimonials-wrapper" id="testimonialsWrapper" aria-live="polite"></div>
+          <!-- Dots populated by app.js -->
+          <div class="testimonial-dots" id="testimonialDots" role="tablist" aria-label="Testimonial navigation"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 13: DOWNLOAD APP
+         ========================================================================= -->
+    <section class="app-download-section" aria-label="Download the MedCare+ mobile app">
+      <div class="app-download-inner">
+
+        <!-- Left: Phone Mockup -->
+        <div class="app-phone-mockup" aria-hidden="true">
+          <div class="app-phone-frame" data-tilt data-tilt-max="15">
+            <i class="fa-solid fa-notes-medical app-phone-icon"></i>
+            <div class="app-phone-label">MedCare+ App<br><small style="opacity:.5;">v4.2 — iOS &amp; Android</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Download Info -->
+        <div class="app-download-info">
+          <span class="app-badge">📱 Available on App Store &amp; Google Play</span>
+          <h2>Get the <span>MedCare+</span> App</h2>
+          <p>Order medicines, track deliveries, chat with pharmacists, and manage your entire health record — all from
+            your smartphone. 4.8★ rated by 800K+ users.</p>
+
+          <ul class="app-feature-list">
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> One-tap prescription reorder</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Real-time delivery tracking on map</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Medication reminder &amp; refill alerts</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Secure health record &amp; lab reports
+              storage</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Live pharmacist chat 24/7</li>
+          </ul>
+
+          <!-- Store Buttons -->
+          <div class="app-store-buttons">
+            <a href="#" class="btn-app-store" aria-label="Download on Google Play">
+              <i class="fa-brands fa-google-play" aria-hidden="true"></i>
+              <div class="btn-app-store-text">
+                <small>Get it on</small>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+            <a href="#" class="btn-app-store" aria-label="Download on the App Store">
+              <i class="fa-brands fa-apple" aria-hidden="true"></i>
+              <div class="btn-app-store-text">
+                <small>Download on the</small>
+                <strong>App Store</strong>
+              </div>
+            </a>
+          </div>
+
+          <!-- QR Code Placeholder -->
+          <div class="app-qr-wrap" role="img" aria-label="QR code to download the app">
+            <div class="app-qr-box">
+              <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+            </div>
+            <div class="app-qr-info">
+              <strong>Scan to Download</strong>
+              Point your camera at this QR code to instantly download MedCare+ on your device.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 14: NEWSLETTER
+         ========================================================================= -->
+    <section class="newsletter-section" id="newsletter" aria-label="Subscribe to newsletter">
+      <div class="container">
+        <div class="newsletter-box">
+          <div class="newsletter-content">
+            <h2 class="newsletter-title">Subscribe for Health Tips &amp; Exclusive Offers</h2>
+            <p class="newsletter-desc">Join 150,000+ subscribers receiving weekly wellness digests, prescription
+              reminders, and members-only savings. <strong>Get 10% off on first order.</strong></p>
+          </div>
+
+          <div class="newsletter-form-wrapper">
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+              <input type="email" id="newsletterEmail" class="newsletter-input"
+                placeholder="Enter your email address..." required
+                aria-label="Email address for newsletter subscription" autocomplete="email">
+              <button type="submit" class="btn-newsletter" aria-label="Subscribe to newsletter">
+                <i class="fa-solid fa-paper-plane me-1" aria-hidden="true"></i> Subscribe
+              </button>
+            </form>
+            <div class="newsletter-footnote">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              <span>Get 10% off on your first order. We respect your privacy and never spam.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SECTION 15: FOOTER
+       ========================================================================= -->
+  <footer class="main-footer" id="contact" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Logo & About -->
+        <div class="footer-col">
+          <a href="index.html" class="logo footer-logo" aria-label="MedCare+ Home">
+            <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></div>
+            <span>MedCare<span class="logo-plus">+</span></span>
+          </a>
+          <p class="footer-about">
+            MedCare+ is India's most trusted online pharmacy and healthcare delivery ecosystem. We combine clinical
+            accuracy with rapid logistics to provide genuine medications right at your fingertips.
+          </p>
+          <div class="footer-socials" aria-label="Social media links">
+            <a href="#" class="social-icon" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook-f"
+                aria-hidden="true"></i></a>
+            <a href="#" class="social-icon" aria-label="Follow us on X (Twitter)"><i class="fa-brands fa-x-twitter"
+                aria-hidden="true"></i></a>
+            <a href="#" class="social-icon" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram"
+                aria-hidden="true"></i></a>
+            <a href="#" class="social-icon" aria-label="Follow us on LinkedIn"><i class="fa-brands fa-linkedin-in"
+                aria-hidden="true"></i></a>
+            <a href="#" class="social-icon" aria-label="Follow us on YouTube"><i class="fa-brands fa-youtube"
+                aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Home</a></li>
+            <li><a href="shop.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Shop Medicines</a></li>
+            <li><a href="prescription.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Upload
+                Prescription</a></li>
+            <li><a href="search.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Search Products</a>
+            </li>
+            <li><a href="cart.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Shopping Cart</a></li>
+            <li><a href="checkout.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Checkout</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Contact Support</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Categories -->
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?cat=prescription"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Prescription Medicines</a></li>
+            <li><a href="shop.html?cat=otc"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> OTC Medicines</a>
+            </li>
+            <li><a href="shop.html?cat=vitamins"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Vitamins
+                &amp; Supplements</a></li>
+            <li><a href="shop.html?cat=baby"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Baby &amp;
+                Mother Care</a></li>
+            <li><a href="shop.html?cat=skincare"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Skin &amp;
+                Hair Care</a></li>
+            <li><a href="shop.html?cat=devices"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Medical
+                Devices</a></li>
+            <li><a href="dashboard.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Patient
+                Dashboard</a></li>
+            <li><a href="admin.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Contact &amp; Support</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>MedCare Healthcare Towers, 4th Cross, Koramangala Industrial Hub, Bengaluru 560034</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <span>+91 1800-MED-CARE / +91 80 4920 1200</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <span>support@medcarepharmacy.com</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <span>Working Hours: Open 24 Hours / 7 Days a Week</span>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /.footer-grid -->
+
+      <!-- Payment Methods Bar -->
+      <div class="footer-payments-bar" aria-label="Accepted payment methods">
+        <div class="d-flex align-items-center">
+          <span class="payment-title"><i class="fa-solid fa-lock text-success me-1" aria-hidden="true"></i> 100% Safe
+            &amp; Encrypted Payments:</span>
+          <div class="payment-methods-icons">
+            <span class="pay-badge"><i class="fa-brands fa-cc-visa text-primary" aria-hidden="true"></i> Visa</span>
+            <span class="pay-badge"><i class="fa-brands fa-cc-mastercard text-danger" aria-hidden="true"></i>
+              Mastercard</span>
+            <span class="pay-badge"><i class="fa-solid fa-qrcode text-success" aria-hidden="true"></i> UPI / GPay /
+              PhonePe</span>
+            <span class="pay-badge"><i class="fa-solid fa-building-columns text-info" aria-hidden="true"></i>
+              NetBanking</span>
+            <span class="pay-badge"><i class="fa-solid fa-money-bill-wave text-secondary" aria-hidden="true"></i> Cash
+              on Delivery</span>
+          </div>
+        </div>
+        <div class="text-muted small">
+          Licensed Drug Retail License No: <strong>DL-KA-2024-98412</strong>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 MedCare+ Online Pharmacy Ltd. All rights reserved. &ldquo;Your Health, Our Priority&rdquo;
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms &amp; Conditions</a>
+          <a href="#disclaimer">FDA / Drug Disclaimer</a>
+          <a href="#sitemap">Sitemap</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===========================================================================
+       PRESERVED MODALS & WIDGETS
+       =========================================================================== -->
+
+  <!-- Cart Overlay + Drawer -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer" aria-modal="true" role="dialog">
+    <div class="cart-header">
+      <h3><i class="fa-solid fa-basket-shopping text-primary" aria-hidden="true"></i> Your Cart</h3>
+      <button class="btn-close-cart" id="closeCartBtn" aria-label="Close cart drawer">&times;</button>
+    </div>
+
+    <!-- Free Delivery Progress Bar -->
+    <div class="cart-shipping-meter">
+      <div class="shipping-text" id="freeShippingText" aria-live="polite">
+        Add <strong>₹500</strong> more for <strong>FREE Delivery</strong>
+      </div>
+      <div class="shipping-bar-bg" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="shipping-bar-fill" id="freeShippingBar" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div class="cart-body" id="cartItemsList" aria-live="polite">
+      <!-- Dynamically populated by app.js -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span class="text-muted">Item Subtotal:</span>
+        <span id="cartSubtotal" class="fw-bold">₹0</span>
+      </div>
+      <div class="cart-summary-row">
+        <span class="text-muted">Delivery Charges:</span>
+        <span class="text-success fw-bold">FREE Above ₹500</span>
+      </div>
+      <div class="cart-summary-row cart-summary-total">
+        <span>Estimated Total:</span>
+        <span id="cartTotal" class="text-primary">₹0</span>
+      </div>
+      <div class="d-flex flex-column gap-2 mt-3">
+        <a href="cart.html" class="btn btn-outline-primary py-2 text-center"
+          style="border-radius: var(--border-radius-full, 9999px); font-weight: 600;">
+          <i class="fa-solid fa-cart-shopping me-1" aria-hidden="true"></i> View Full Cart
+        </a>
+        <button class="btn-checkout" id="checkoutBtn">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i> Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quickViewModal" role="dialog" aria-modal="true" aria-label="Quick product view"
+    aria-hidden="true">
+    <div class="modal-container modal-quick-view">
+      <button class="btn-modal-close" id="closeQuickViewBtn" aria-label="Close quick view">&times;</button>
+      <div id="quickViewContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Prescription Upload Modal -->
+  <div class="modal-overlay" id="prescriptionModal" role="dialog" aria-modal="true" aria-label="Upload prescription"
+    aria-hidden="true">
+    <div class="modal-container modal-prescription">
+      <button class="btn-modal-close" id="closePrescriptionBtn" aria-label="Close prescription modal">&times;</button>
+      <div class="modal-header-rx">
+        <div class="logo-icon-wrap mx-auto mb-2" style="margin: 0 auto 12px;" aria-hidden="true">
+          <i class="fa-solid fa-file-medical"></i>
+        </div>
+        <h3>Upload Doctor's Prescription</h3>
+        <p class="text-muted small">Our licensed pharmacists will review doses and call you to confirm your order.</p>
+      </div>
+
+      <form id="prescriptionForm" novalidate>
+        <!-- Drag & Drop Zone -->
+        <div class="file-drop-zone" id="fileDropZone" role="button" tabindex="0"
+          aria-label="Drag and drop prescription file or click to browse">
+          <i class="fa-solid fa-cloud-arrow-up file-drop-icon" aria-hidden="true"></i>
+          <h5>Drag &amp; Drop your prescription here</h5>
+          <p class="text-muted small">or <strong class="text-primary">Browse Files</strong> from your device</p>
+          <span class="badge bg-light text-muted mt-2">Supports JPG, PNG, WEBP, PDF (Max 10MB)</span>
+          <input type="file" id="prescriptionFileInput" accept=".jpg,.jpeg,.png,.webp,.pdf" style="display: none;"
+            aria-label="Choose prescription file">
+        </div>
+
+        <div id="filePreviewArea" style="display: none;" aria-live="polite"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="rxPatientName">Patient Full Name *</label>
+          <input type="text" id="rxPatientName" class="form-control" placeholder="e.g. Rahul Sharma" required
+            autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="rxPatientPhone">Contact Mobile Number *</label>
+          <input type="tel" id="rxPatientPhone" class="form-control" placeholder="e.g. 9876543210" required
+            autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="rxPatientNotes">Notes for Pharmacist (Optional)</label>
+          <textarea id="rxPatientNotes" class="form-control" rows="2"
+            placeholder="Mention preferred brands, strip quantities or specific delivery times..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 py-3 fw-bold"
+          style="border-radius: var(--border-radius-full, 9999px); font-size: 1rem;">
+          <i class="fa-solid fa-paper-plane me-2" aria-hidden="true"></i> Submit Prescription for Verification
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Auth / Login Modal -->
+  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-label="Login or Register"
+    aria-hidden="true">
+    <div class="modal-container modal-auth">
+      <button class="btn-modal-close" id="closeAuthBtn" aria-label="Close login modal">&times;</button>
+
+      <div class="auth-tabs" role="tablist" aria-label="Login or registration tabs">
+        <button class="auth-tab active" data-tab="login" role="tab" aria-selected="true"
+          aria-controls="loginForm">Login</button>
+        <button class="auth-tab" data-tab="register" role="tab" aria-selected="false" aria-controls="registerForm">New
+          Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" role="tabpanel" novalidate>
+        <div id="modalLoginError" class="alert alert-danger py-2 px-3 small mb-3"
+          style="display: none; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Email Address</label>
+          <input type="text" id="loginEmail" class="form-control" placeholder="name@example.com" required
+            autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required
+            autocomplete="current-password">
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-3 small">
+          <label><input type="checkbox" id="loginRememberMe" checked> Remember me</label>
+          <a href="login.html" class="text-primary">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold"
+          style="border-radius: var(--border-radius-full, 9999px);">
+          Sign In
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" role="tabpanel" style="display: none;" novalidate>
+        <div id="modalRegisterError" class="alert alert-danger py-2 px-3 small mb-3"
+          style="display: none; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regName">Full Name</label>
+          <input type="text" id="regName" class="form-control" placeholder="e.g. Aditi Rao" required
+            autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regEmail">Email Address</label>
+          <input type="email" id="regEmail" class="form-control" placeholder="name@example.com" required
+            autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regPhone">Phone Number</label>
+          <input type="tel" id="regPhone" class="form-control" placeholder="10-digit mobile number" required
+            autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regPassword">Create Password</label>
+          <input type="password" id="regPassword" class="form-control" placeholder="Min. 6 characters" required
+            autocomplete="new-password">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regConfirmPassword">Confirm Password</label>
+          <input type="password" id="regConfirmPassword" class="form-control" placeholder="Re-enter password" required
+            autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn btn-success w-100 py-2 fw-bold mt-2"
+          style="border-radius: var(--border-radius-full, 9999px);">
+          Create Free Account
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sticky Cart Bar -->
+  <div class="sticky-cart-bar" id="stickyCartBar" style="display: none;" role="complementary"
+    aria-label="Cart summary bar">
+    <div class="sticky-cart-info">
+      <div class="sticky-cart-icon"><i class="fa-solid fa-basket-shopping" aria-hidden="true"></i></div>
+      <div>
+        <div class="sticky-cart-title"><span id="stickyCartCount">0</span> Items in Cart &bull; <strong
+            id="stickyCartTotal">₹0</strong></div>
+        <div class="sticky-cart-sub text-success"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> 100% Genuine
+          Medicines • Fast Delivery</div>
+      </div>
+    </div>
+    <div class="sticky-cart-actions">
+      <a href="cart.html" class="btn btn-outline-light">
+        <i class="fa-solid fa-cart-shopping me-1" aria-hidden="true"></i> View Cart
+      </a>
+      <a href="checkout.html" class="btn btn-success fw-bold">
+        <i class="fa-solid fa-lock me-1" aria-hidden="true"></i> Proceed to Checkout <i
+          class="fa-solid fa-arrow-right ms-1" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn"
+    aria-label="Chat with a pharmacist on WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span class="floating-whatsapp-tooltip">Chat with a Pharmacist on WhatsApp</span>
+  </a>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent-banner" id="cookieConsentBanner" role="dialog" aria-label="Cookie consent"
+    aria-modal="true">
+    <div class="cookie-content-row">
+      <i class="fa-solid fa-cookie-bite cookie-icon" aria-hidden="true"></i>
+      <div class="cookie-text">
+        <h5>We Value Your Privacy</h5>
+        <p>We use essential cookies and encrypted clinical storage to ensure safe prescription verification and faster
+          delivery.</p>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie-decline" id="btnDeclineCookies">Decline</button>
+      <button class="btn-cookie-accept" id="btnAcceptCookies">Accept All</button>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer" role="region" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Announcement Bar Close Script (inline for immediacy) -->
+  <script>
+    (function () {
+      var bar = document.getElementById('announcementBar');
+      var btn = document.getElementById('closeAnnouncementBar');
+      if (btn && bar) {
+        btn.addEventListener('click', function () {
+          bar.style.transition = 'max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease';
+          bar.style.maxHeight = bar.scrollHeight + 'px';
+          requestAnimationFrame(function () {
+            bar.style.maxHeight = '0';
+            bar.style.opacity = '0';
+            bar.style.overflow = 'hidden';
+          });
+          setTimeout(function () { bar.style.display = 'none'; }, 350);
+        });
+      }
+    })();
+  </script>
+
+  <!-- Animation & 3D Interactive Libraries (AOS, Vanilla Tilt, GSAP) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/global-widgets.js"></script>
+  <script src="js/navbar.js"></script>
+
+</body>
+
+</html>

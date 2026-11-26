@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Prescription & Order Medicines | MedCare Online Pharmacy</title>
+  <meta name="description" content="Upload your doctor's prescription safely with MedCare. Our certified clinical pharmacists will review your medicines and deliver them directly to your doorstep.">
+
+  <!-- Google Fonts: Poppins (Headings) & Roboto (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Free Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Shared Stylesheet & Prescription Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prescription.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Quick helpline">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fa-solid fa-phone-volume"></i> 24/7 Rx Consultation Helpline: <strong>+91 1800-MED-CARE</strong></span>
+        <span><i class="fa-solid fa-user-doctor"></i> Reviewed by Licensed Clinical Pharmacists</span>
+      </div>
+      <div class="top-bar-right">
+        <span class="top-bar-badge"><i class="fa-solid fa-lock"></i> 256-Bit HIPAA Encrypted</span>
+        <a href="index.html#contact"><i class="fa-brands fa-whatsapp"></i> WhatsApp Order</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Main Navbar -->
+  <header class="main-header" id="mainHeader">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo -->
+        <a href="index.html" class="logo" aria-label="MedCare Online Pharmacy Home">
+          <div class="logo-icon-wrap">
+            <i class="fa-solid fa-notes-medical"></i>
+          </div>
+          <span>MedCare<span class="logo-plus">+</span></span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="shop.html" class="nav-link">Shop Medicines</a></li>
+          <li><a href="prescription.html" class="nav-link active">Upload Prescription <span class="nav-link-badge">Fast</span></a></li>
+          <li><a href="search.html" class="nav-link">Search</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+
+        <!-- Right Side: Cart, User Greeting, Login -->
+        <div class="header-actions">
+          <!-- Cart Button with text & count badge -->
+          <button class="btn-header-cart" id="cartBtn" aria-label="Open Shopping Cart" title="View Cart Drawer">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Cart</span>
+            <span class="cart-count-badge" style="display: none;">0</span>
+          </button>
+
+          <!-- Direct Checkout Quick Button -->
+          <a href="checkout.html" class="btn-header-checkout" id="headerCheckoutBtn" title="Proceed directly to Checkout">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Checkout</span>
+          </a>
+
+          <a href="admin.html" class="btn btn-outline-primary btn-sm px-3" style="border-radius: var(--border-radius-full);" title="Access Admin Portal">
+            <i class="fa-solid fa-user-shield me-1"></i> Admin
+          </a>
+
+          <div id="userGreeting"></div>
+
+          <a href="login.html" class="btn-login" id="loginBtn">
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Login / Register</span>
+          </a>
+
+          <button class="btn-mobile-menu" id="mobileMenuBtn" aria-label="Open Mobile Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Navigation -->
+  <aside class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+        <span>MedCare<span class="logo-plus">+</span></span>
+      </a>
+      <button class="btn-close-mobile" id="closeMobileNav" aria-label="Close menu">&times;</button>
+    </div>
+
+    <ul class="mobile-nav-menu">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house text-primary"></i> Home</a></li>
+      <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-capsules text-primary"></i> Shop Medicines</a></li>
+      <li><a href="prescription.html" class="mobile-nav-link active"><i class="fa-solid fa-file-prescription text-primary"></i> Upload Prescription</a></li>
+      <li><a href="search.html" class="mobile-nav-link"><i class="fa-solid fa-magnifying-glass text-primary"></i> Search Products</a></li>
+      <li><a href="cart.html" class="mobile-nav-link"><i class="fa-solid fa-cart-shopping text-primary"></i> Shopping Cart</a></li>
+      <li><a href="checkout.html" class="mobile-nav-link text-success fw-bold"><i class="fa-solid fa-lock text-success"></i> Proceed to Checkout</a></li>
+      <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info text-primary"></i> About Us</a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope text-primary"></i> Contact Us</a></li>
+      <li><a href="admin.html" class="mobile-nav-link"><i class="fa-solid fa-user-shield text-primary"></i> Admin Dashboard</a></li>
+    </ul>
+
+    <div class="mt-auto">
+      <a href="checkout.html" class="btn btn-success w-100 mb-2 fw-bold">
+        <i class="fa-solid fa-lock me-2"></i> Go to Checkout
+      </a>
+      <a href="login.html" class="btn btn-primary w-100 mb-2" id="mobileLoginBtn">
+        <i class="fa-solid fa-right-to-bracket me-2"></i> Account Login
+      </a>
+    </div>
+  </aside>
+
+  <main class="prescription-page-main">
+    
+    <!-- ==========================================================================
+         1. PAGE HEADER
+         ========================================================================== -->
+    <section class="rx-page-header">
+      <div class="container text-center">
+        <div class="rx-header-pill">
+          <i class="fa-solid fa-shield-halved"></i> 100% Confidential &amp; Verified
+        </div>
+        <h1 class="rx-header-title">Upload Your Prescription</h1>
+        <p class="rx-header-subtitle">We'll deliver the right medicines to your doorstep</p>
+      </div>
+    </section>
+
+    <!-- Main Workspace: Upload & Details Form (Left) + How It Works Sidebar (Right) -->
+    <div class="container py-5">
+      <div class="rx-page-layout">
+        
+        <!-- MAIN COLUMN (70%): UPLOAD SECTION & DETAILS FORM -->
+        <div class="rx-main-flow-column">
+          
+          <!-- ==========================================================================
+               2. UPLOAD SECTION (Center Aligned)
+               ========================================================================== -->
+          <div class="rx-card-box mb-4">
+            <div class="rx-card-header">
+              <h3><i class="fa-solid fa-cloud-arrow-up text-primary me-2"></i> Select &amp; Upload Files</h3>
+              <span class="badge bg-light text-primary">Multiple Files Supported</span>
+            </div>
+
+            <!-- Large Drag & Drop Area with Dashed Border -->
+            <div class="rx-dropzone" id="rxDropzone">
+              <div class="dropzone-inner-content">
+                <div class="dropzone-icon-circle">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h4 class="dropzone-heading">Drag &amp; Drop your prescription here</h4>
+                <div class="dropzone-divider">
+                  <span>OR</span>
+                </div>
+                <button type="button" class="btn btn-primary btn-browse-files" id="btnBrowseFiles">
+                  <i class="fa-solid fa-folder-open me-2"></i> Browse Files
+                </button>
+                <input type="file" id="rxMultiFileInput" multiple accept=".jpg,.jpeg,.png,.webp,.pdf" style="display: none;">
+                
+                <div class="dropzone-footnote mt-3">
+                  <span class="text-muted"><i class="fa-solid fa-file-circle-check text-success me-1"></i> Supported formats: <strong>JPG, PNG, PDF</strong> (Max 5MB each)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Uploaded Files Preview Area with Remove Option -->
+            <div class="uploaded-files-container" id="uploadedFilesContainer" style="display: none;">
+              <h5 class="uploaded-files-heading">
+                <i class="fa-solid fa-paperclip text-primary me-2"></i> Attached Documents (<span id="attachedFilesCount">0</span>)
+              </h5>
+              <div class="uploaded-files-grid" id="uploadedFilesGrid">
+                <!-- Dynamically populated via JS -->
+              </div>
+            </div>
+
+            <!-- Camera Quick Capture hint -->
+            <div class="camera-hint-box mt-3">
+              <i class="fa-solid fa-camera text-primary"></i>
+              <span>Tip: Using a mobile device? You can take a clear, well-lit photo of the paper prescription directly.</span>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               3. PRESCRIPTION DETAILS FORM
+               ========================================================================== -->
+          <div class="rx-card-box">
+            <div class="rx-card-header">
+              <h3><i class="fa-solid fa-clipboard-user text-primary me-2"></i> Patient &amp; Delivery Details</h3>
+              <span class="small text-muted">* Required fields</span>
+            </div>
+
+            <form id="rxOrderForm" novalidate>
+              <div class="row g-3">
+                
+                <!-- Patient Name -->
+                <div class="form-group col-md-6 mb-3">
+                  <label class="form-label" for="patientNameInput">
+                    Patient Full Name *
+                  </label>
+                  <div class="input-with-icon">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="patientNameInput" class="form-control" placeholder="Name as printed on prescription" required>
+                  </div>
+                  <small class="form-text-hint">Ensures exact pharmacist dose matching</small>
+                </div>
+
+                <!-- Doctor Name -->
+                <div class="form-group col-md-6 mb-3">
+                  <label class="form-label" for="doctorNameInput">
+                    Doctor / Clinic Name *
+                  </label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <input type="text" id="doctorNameInput" class="form-control" placeholder="e.g. Dr. A. Sharma / Apollo Clinic" required>
+                  </div>
+                </div>
+
+                <!-- Contact Number -->
+                <div class="form-group col-md-6 mb-3">
+                  <label class="form-label" for="contactPhoneInput">
+                    Contact Mobile Number *
+                  </label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" id="contactPhoneInput" maxlength="10" class="form-control" placeholder="10-digit mobile number" required>
+                  </div>
+                  <small class="form-text-hint">Our pharmacist will call you to confirm items</small>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group col-md-6 mb-3">
+                  <label class="form-label" for="contactEmailInput">
+                    Email Address *
+                  </label>
+                  <div class="input-with-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="contactEmailInput" class="form-control" placeholder="For digital tax invoice &amp; tracking" required>
+                  </div>
+                </div>
+
+                <!-- Delivery Address -->
+                <div class="form-group col-12 mb-3">
+                  <label class="form-label" for="deliveryAddressInput">
+                    Delivery Address *
+                  </label>
+                  <textarea id="deliveryAddressInput" class="form-control" rows="3" placeholder="Flat / House No., Building Name, Street, Landmark, City &amp; Pincode" required></textarea>
+                </div>
+
+                <!-- Medicines from Prescription (Optional Auto-Add to Cart) -->
+                <div class="form-group col-12 mb-3">
+                  <label class="form-label" for="rxMedicineSearchInput">
+                    Medicines on Prescription (Optional — Add Directly to Cart)
+                  </label>
+                  <div class="position-relative">
+                    <input type="text" id="rxMedicineSearchInput" class="form-control" placeholder="Search medicine name (e.g. Amoxicillin, Paracetamol, Vitamin C)..." autocomplete="off">
+                    <div id="rxMedicineSuggestions" class="list-group position-absolute w-100 shadow-sm" style="z-index: 20; max-height: 220px; overflow-y: auto; display: none;"></div>
+                  </div>
+                  <div id="rxSelectedMedicinesList" class="mt-2 d-flex flex-column gap-2"></div>
+                  <label class="d-flex align-items-center gap-2 mt-2 small text-muted" style="cursor: pointer;">
+                    <input type="checkbox" id="rxAutoAddToCart" checked>
+                    <span>Automatically add selected medicines to my Shopping Cart upon submission</span>
+                  </label>
+                </div>
+
+                <!-- Special Instructions / Notes -->
+                <div class="form-group col-12 mb-3">
+                  <label class="form-label" for="specialNotesInput">
+                    Special Instructions / Notes (Optional)
+                  </label>
+                  <textarea id="specialNotesInput" class="form-control" rows="2" placeholder="e.g. Please provide 30-day generic strip, call after 2 PM, or deliver only syrup form..."></textarea>
+                </div>
+
+                <!-- Terms & Conditions Checkbox -->
+                <div class="form-group col-12 mb-4">
+                  <label class="terms-checkbox-label">
+                    <input type="checkbox" id="termsCheckInput" required>
+                    <span>I declare that I am uploading a valid prescription issued by a registered medical practitioner. I agree to MedCare's <a href="#" class="text-primary">Terms &amp; Conditions</a> and <a href="#" class="text-primary">Privacy Policy</a>.</span>
+                  </label>
+                </div>
+
+              </div>
+
+              <!-- Submit Button (Large, Green) -->
+              <button type="submit" class="btn-rx-submit" id="btnSubmitPrescription">
+                <i class="fa-solid fa-circle-check me-2"></i> Submit Prescription for Pharmacist Verification
+              </button>
+
+              <div class="secure-submit-footer mt-3 text-center">
+                <i class="fa-solid fa-shield-halved text-success me-1"></i>
+                <span>All documents are encrypted with banking-grade security. Zero spam guarantee.</span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- ==========================================================================
+             4. HOW IT WORKS SIDEBAR (Right Side)
+             ========================================================================== -->
+        <aside class="rx-sidebar-column">
+          
+          <div class="how-it-works-sidebar-card mb-4">
+            <h3 class="sidebar-card-title"><i class="fa-solid fa-wand-magic-sparkles text-primary me-2"></i> How It Works</h3>
+            <p class="sidebar-card-subtitle">5 simple steps from prescription upload to doorstep delivery:</p>
+
+            <div class="rx-steps-vertical">
+              <!-- Step 1 -->
+              <div class="rx-step-item">
+                <div class="rx-step-badge">1</div>
+                <div class="rx-step-details">
+                  <h4>Upload Valid Prescription</h4>
+                  <p>Attach clear photos or PDF of your doctor's slip with medications listed.</p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="rx-step-item">
+                <div class="rx-step-badge">2</div>
+                <div class="rx-step-details">
+                  <h4>Pharmacist Reviews It</h4>
+                  <p>Our licensed pharmacist reviews drug dosages, safety checks, and brand availability.</p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="rx-step-item">
+                <div class="rx-step-badge">3</div>
+                <div class="rx-step-details">
+                  <h4>We Confirm Medicines &amp; Price</h4>
+                  <p>We call you within 15 minutes to confirm strip count, discount offers, and total cost.</p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="rx-step-item">
+                <div class="rx-step-badge">4</div>
+                <div class="rx-step-details">
+                  <h4>Make Payment</h4>
+                  <p>Pay easily via UPI, Credit/Debit Card, or select Cash on Delivery.</p>
+                </div>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="rx-step-item">
+                <div class="rx-step-badge">5</div>
+                <div class="rx-step-details">
+                  <h4>Medicines Delivered</h4>
+                  <p>Arrives safely at your doorstep in tamper-proof, temperature-controlled packaging.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pharmacist Help Card -->
+          <div class="pharmacist-helpline-card">
+            <div class="helpline-avatar-box">
+              <i class="fa-solid fa-user-nurse"></i>
+            </div>
+            <h4>Need Help with Your Rx?</h4>
+            <p>Our clinical support team is active 24/7 to assist with handwritten notes and dosage questions.</p>
+            <a href="tel:18006332273" class="btn btn-outline-primary btn-sm w-100 mt-2">
+              <i class="fa-solid fa-phone me-1"></i> Call 1800-MED-CARE
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         5. GUIDELINES SECTION (What Makes a Valid Prescription)
+         ========================================================================== -->
+    <section class="rx-guidelines-section py-5 bg-white border-top">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Safety &amp; Compliance</span>
+          <h2 class="section-title">Prescription Guidelines</h2>
+          <p class="section-desc">To avoid delivery delays, ensure your uploaded prescription contains the key legal elements shown below.</p>
+        </div>
+
+        <div class="guidelines-content-grid">
+          
+          <!-- Interactive Annotated Sample Prescription Card -->
+          <div class="sample-rx-container">
+            <div class="sample-rx-card">
+              <div class="sample-rx-header">
+                <div>
+                  <span class="sample-clinic-title">CITY HEALTHCARE CLINIC</span>
+                  <span class="sample-doc-title">Dr. Rajesh V. Sharma, M.D., M.B.B.S.</span>
+                  <span class="sample-reg-no">Reg. No: KMC-49281-2012</span>
+                </div>
+                <div class="sample-rx-stamp">
+                  <i class="fa-solid fa-stamp"></i> OFFICIAL RX
+                </div>
+              </div>
+
+              <div class="sample-patient-meta">
+                <span><strong>Patient:</strong> Rahul Verma, 42 Y / M</span>
+                <span><strong>Date:</strong> 18-Oct-2026</span>
+              </div>
+
+              <div class="sample-rx-symbol">℞</div>
+
+              <div class="sample-rx-medicines">
+                <div class="sample-med-line">
+                  <span>1. Tab. Dolo 650mg</span>
+                  <small>1 Tab TID (After meals) x 5 days</small>
+                </div>
+                <div class="sample-med-line">
+                  <span>2. Cap. Augmentin 625mg</span>
+                  <small>1 Cap BD (Morning &amp; Night) x 7 days</small>
+                </div>
+                <div class="sample-med-line">
+                  <span>3. Tab. Pantocid 40mg</span>
+                  <small>1 Tab OD (Before breakfast) x 7 days</small>
+                </div>
+              </div>
+
+              <div class="sample-rx-footer">
+                <div class="sample-signature">
+                  <span class="sig-line">Dr. R. Sharma</span>
+                  <small>Doctor's Signature &amp; Seal</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guidelines Checklist -->
+          <div class="guidelines-checklist-card">
+            <h3><i class="fa-solid fa-list-check text-primary me-2"></i> What Makes a Valid Prescription:</h3>
+            
+            <ul class="guidelines-checklist">
+              <li>
+                <i class="fa-solid fa-circle-check text-success"></i>
+                <div>
+                  <strong>Doctor &amp; Hospital Details:</strong>
+                  <p>Doctor's full name, medical qualification, clinic header, and registered medical council number.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check text-success"></i>
+                <div>
+                  <strong>Patient Details &amp; Date:</strong>
+                  <p>Patient's name, age/gender, and consultation date (must not be older than 6 months for acute medications).</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check text-success"></i>
+                <div>
+                  <strong>Clear Medicine Names &amp; Dosages:</strong>
+                  <p>Legible drug brand or active generic name with strength (e.g. 500mg, 10ml) and dosage frequency.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check text-success"></i>
+                <div>
+                  <strong>Doctor's Signature &amp; Stamp:</strong>
+                  <p>Physical handwritten signature or authenticated digital e-signature.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="guideline-alert-pill mt-3">
+              <i class="fa-solid fa-triangle-exclamation text-warning me-2"></i>
+              <span><strong>Note:</strong> We cannot accept cropped images that hide the doctor's header, blurred photos, or prescriptions with handwritten alterations.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. FAQ SECTION (Accordion Style)
+         ========================================================================== -->
+    <section class="rx-faq-section py-5 bg-light border-top">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Everything you need to know about uploading prescriptions and receiving authentic medicines.</p>
+        </div>
+
+        <div class="rx-faq-accordion" id="rxFaqAccordion">
+          <!-- Populated by JS from PHARMACY_DATA.prescriptionFaqs -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Submission Success Modal -->
+  <div class="modal-overlay" id="rxSuccessModal">
+    <div class="modal-container modal-rx-success">
+      <div class="success-icon-wrap">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3 class="mt-3">Prescription Uploaded Successfully!</h3>
+      <p class="text-muted">Your order reference is <strong>#MED-RX-<span id="rxRefNumber">84920</span></strong></p>
+      
+      <div class="rx-success-info-box">
+        <p class="mb-2"><i class="fa-solid fa-phone-volume text-primary me-2"></i> Our licensed clinical pharmacist will call you at <strong id="successPhoneDisp">+91 ...</strong> within <strong>15 minutes</strong> to confirm medicines and schedule delivery.</p>
+        <p class="mb-0 text-muted small"><i class="fa-solid fa-truck text-success me-1"></i> Delivery tracking updates will also be sent to your email.</p>
+      </div>
+
+      <div class="d-flex gap-2 mt-4">
+        <a href="shop.html" class="btn btn-outline-primary flex-grow-1">Browse More Medicines</a>
+        <button type="button" class="btn btn-primary flex-grow-1" id="btnDismissSuccess">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="cart-header">
+      <h3><i class="fa-solid fa-basket-shopping text-primary"></i> Your Cart</h3>
+      <button class="btn-close-cart" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-body" id="cartItemsList"></div>
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span class="text-muted">Total:</span>
+        <span id="cartTotal" class="text-primary fw-bold">₹0</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Shared Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: About MedCare -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+            <span>MedCare<span class="logo-plus">+</span></span>
+          </div>
+          <p class="footer-desc">
+            India's most trusted online pharmacy offering 100% genuine certified medicines, OTC wellness essentials, and rapid doorstep delivery.
+          </p>
+          <div class="footer-cert-badges">
+            <span class="badge bg-success-subtle text-success me-2"><i class="fa-solid fa-award"></i> WHO-GMP Certified</span>
+            <span class="badge bg-primary-subtle text-primary"><i class="fa-solid fa-user-doctor"></i> Licensed Pharmacists</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Explore Catalog</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> All Medicines</a></li>
+            <li><a href="search.html?tab=medicines"><i class="fa-solid fa-angle-right"></i> Prescription Drugs</a></li>
+            <li><a href="search.html?tab=health"><i class="fa-solid fa-angle-right"></i> Health Supplements</a></li>
+            <li><a href="prescription.html"><i class="fa-solid fa-angle-right"></i> Upload Prescription</a></li>
+            <li><a href="search.html"><i class="fa-solid fa-angle-right"></i> Search Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4>Company &amp; Care</h4>
+          <ul class="footer-links">
+            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Our Pharmacy</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Support</a></li>
+            <li><a href="contact.html#business-hours"><i class="fa-solid fa-angle-right"></i> Pharmacy Timings</a></li>
+            <li><a href="contact.html#faq-section"><i class="fa-solid fa-angle-right"></i> Order &amp; Delivery FAQs</a></li>
+            <li><a href="admin.html"><i class="fa-solid fa-angle-right"></i> Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Central Pharmacy</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MedCare Healthcare Towers, 4th Cross, 100ft Road, Bengaluru 560034</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>1800-MED-CARE (Toll-Free 24/7)</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>support@medcarepharmacy.com</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Online Orders: Open 24/7 / 365 Days</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MedCare Online Pharmacy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">FDA Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="floating-whatsapp-tooltip">Chat with a Pharmacist on WhatsApp</span>
+  </a>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent-banner" id="cookieConsentBanner" role="dialog" aria-label="Cookie Preferences">
+    <div class="cookie-content-row">
+      <i class="fa-solid fa-cookie-bite cookie-icon"></i>
+      <div class="cookie-text">
+        <h5>We Value Your Privacy</h5>
+        <p>We use essential cookies and encrypted clinical storage to ensure safe prescription verification and faster delivery.</p>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie-decline" id="btnDeclineCookies">Decline</button>
+      <button class="btn-cookie-accept" id="btnAcceptCookies">Accept All</button>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/prescription.js"></script>
+  <script src="js/global-widgets.js"></script>
+</body>
+</html>

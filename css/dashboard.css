@@ -1,0 +1,602 @@
+/* ==========================================================================
+   MedCare Online Pharmacy - User Dashboard Stylesheet (Page 8)
+   ========================================================================== */
+
+.dashboard-page-wrapper {
+  background-color: #f1f5f9;
+  min-height: calc(100vh - 80px);
+  padding: 30px 0 60px;
+}
+
+/* Dashboard Grid Layout (280px Sidebar + 1fr Content) */
+.dashboard-grid-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* ==========================================================================
+   1. DASHBOARD SIDEBAR
+   ========================================================================== */
+.dashboard-sidebar-card {
+  background: #ffffff;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  position: sticky;
+  top: 90px;
+}
+
+/* User Profile Badge Header */
+.sidebar-user-header {
+  padding: 28px 20px 22px;
+  text-align: center;
+  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.user-avatar-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 12px;
+}
+
+.user-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3.5px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(13, 110, 253, 0.25);
+}
+
+.avatar-edit-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  transition: all var(--transition-fast);
+}
+
+.avatar-edit-badge:hover {
+  background: var(--primary-hover);
+  transform: scale(1.1);
+}
+
+.sidebar-user-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.sidebar-user-email {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.user-membership-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: var(--border-radius-full);
+  margin-top: 8px;
+}
+
+/* Sidebar Menu Navigation */
+.dashboard-sidebar-menu {
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+}
+
+.dashboard-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 24px;
+  color: #475569;
+  font-weight: 500;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border-left: 3.5px solid transparent;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.dashboard-menu-link i {
+  width: 20px;
+  font-size: 1.05rem;
+  color: #64748b;
+  transition: color var(--transition-fast);
+}
+
+.dashboard-menu-link:hover {
+  background-color: #f8fafc;
+  color: var(--primary);
+}
+
+.dashboard-menu-link:hover i {
+  color: var(--primary);
+}
+
+.dashboard-menu-link.active {
+  background-color: #f0f7ff;
+  color: var(--primary);
+  font-weight: 700;
+  border-left-color: var(--primary);
+}
+
+.dashboard-menu-link.active i {
+  color: var(--primary);
+}
+
+.dashboard-menu-badge {
+  margin-left: auto;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: var(--border-radius-full);
+  font-weight: 700;
+}
+
+.dashboard-menu-link.logout-link {
+  color: var(--danger);
+  border-top: 1px solid #f1f5f9;
+  margin-top: 8px;
+  padding-top: 14px;
+}
+
+.dashboard-menu-link.logout-link i {
+  color: var(--danger);
+}
+
+.dashboard-menu-link.logout-link:hover {
+  background-color: #fef2f2;
+}
+
+/* ==========================================================================
+   2. DASHBOARD MAIN CONTENT PANELS
+   ========================================================================== */
+.dashboard-panel {
+  display: none;
+  background: #ffffff;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  padding: 30px;
+}
+
+.dashboard-panel.active {
+  display: block;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.panel-header-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.panel-heading-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Stats Overview Cards */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-metric-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--border-radius);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all var(--transition-fast);
+}
+
+.stat-metric-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.stat-icon-wrap.orders { background: #e0f2fe; color: #0284c7; }
+.stat-icon-wrap.prescriptions { background: #dcfce7; color: #16a34a; }
+.stat-icon-wrap.wallet { background: #fef3c7; color: #d97706; }
+.stat-icon-wrap.wishlist { background: #ffe4e6; color: #e11d48; }
+
+.stat-number {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   3. MY ORDERS TAB & ORDER CARDS
+   ========================================================================== */
+.order-filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.order-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.order-filter-btn {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--border-radius-full);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.order-filter-btn.active, .order-filter-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.order-search-box {
+  max-width: 260px;
+  position: relative;
+}
+
+.order-search-box input {
+  padding-left: 36px;
+  font-size: 0.85rem;
+}
+
+.order-search-box i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+/* Order Card */
+.order-history-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  transition: all var(--transition-fast);
+}
+
+.order-history-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-sm);
+}
+
+.order-card-header {
+  background: #f8fafc;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.order-id-badge {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.order-status-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--border-radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.order-status-pill.delivered { background: #dcfce7; color: #15803d; }
+.order-status-pill.in-transit { background: #e0f2fe; color: #0369a1; }
+.order-status-pill.confirmed { background: #fef3c7; color: #b45309; }
+.order-status-pill.cancelled { background: #fee2e2; color: #b91c1c; }
+
+.order-card-body {
+  padding: 18px 20px;
+}
+
+.order-items-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.order-thumb-wrap {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--border-radius-sm);
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.order-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.order-card-footer {
+  padding: 12px 20px;
+  background: #fafbfc;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.order-total-display strong {
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+
+.order-action-btns {
+  display: flex;
+  gap: 8px;
+}
+
+/* ==========================================
+   4. ORDER TRACKER TIMELINE MODAL
+   ========================================== */
+.order-tracker-timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 30px 10px 35px;
+}
+
+.order-tracker-timeline::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.timeline-step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+}
+
+.timeline-step-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.timeline-step.completed .timeline-step-circle {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #ffffff;
+}
+
+.timeline-step.active .timeline-step-circle {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 0 0 5px rgba(13, 110, 253, 0.2);
+}
+
+.timeline-step-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.timeline-step-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. MY PRESCRIPTIONS TAB
+   ========================================================================== */
+.prescription-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.rx-record-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 18px;
+  background: #ffffff;
+  transition: all var(--transition-fast);
+}
+
+.rx-record-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.rx-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rx-preview-thumb {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  background: #f1f5f9;
+  border: 1px solid var(--border-color);
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   6. MY ADDRESSES TAB
+   ========================================================================== */
+.dashboard-addr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
+}
+
+.addr-box {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 18px;
+  position: relative;
+  background: #ffffff;
+}
+
+.addr-box.is-default {
+  border-color: var(--primary);
+  background: #f0f7ff;
+}
+
+/* ==========================================================================
+   7. WALLET & REWARDS TAB
+   ========================================================================== */
+.wallet-hero-banner {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  border-radius: var(--border-radius-lg);
+  padding: 28px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wallet-balance-amount {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.wallet-coins-amount {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #facc15;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .dashboard-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-sidebar-card {
+    position: static;
+  }
+  .dashboard-sidebar-menu {
+    display: flex;
+    overflow-x: auto;
+    padding: 8px;
+    border-top: 1px solid #f1f5f9;
+  }
+  .dashboard-menu-link {
+    white-space: nowrap;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 14px;
+  }
+  .dashboard-menu-link.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--primary);
+  }
+  .dashboard-menu-link.logout-link {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 10px;
+  }
+}

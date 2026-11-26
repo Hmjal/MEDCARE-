@@ -1,0 +1,670 @@
+/* ==========================================================================
+   MedCare Online Pharmacy - Checkout Page Stylesheet
+   ========================================================================== */
+
+/* Minimal Checkout Header */
+.checkout-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.checkout-security-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: var(--border-radius-full);
+}
+
+/* ==========================================================================
+   STEP PROGRESS INDICATOR & BAR
+   ========================================================================== */
+.checkout-steps-wrapper {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 24px 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.steps-progress-track {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  right: 60px;
+  height: 4px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.steps-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.4s ease;
+}
+
+.steps-indicators-row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.step-indicator-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.step-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  transition: color var(--transition-fast);
+}
+
+.step-indicator-item.active .step-circle {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
+}
+
+.step-indicator-item.active .step-label {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.step-indicator-item.completed .step-circle {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #ffffff;
+}
+
+.step-indicator-item.completed .step-label {
+  color: var(--secondary);
+}
+
+/* ==========================================================================
+   CHECKOUT LAYOUT GRID (68% Steps Column + 32% Summary Sidebar)
+   ========================================================================== */
+.checkout-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.checkout-step-panel {
+  display: none;
+}
+
+.checkout-step-panel.active {
+  display: block;
+}
+
+.checkout-panel-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-header-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.panel-header-line h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   STEP 1: SAVED ADDRESSES & NEW ADDRESS FORM
+   ========================================================================== */
+.saved-addresses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.address-card-item {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 16px 18px;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast);
+  background: #ffffff;
+  display: flex;
+  gap: 12px;
+}
+
+.address-card-item:hover {
+  border-color: #94a3b8;
+}
+
+.address-card-item.selected {
+  border-color: var(--primary);
+  background: #f0f7ff;
+  box-shadow: 0 4px 14px rgba(13, 110, 253, 0.12);
+}
+
+.address-card-item input[type="radio"] {
+  accent-color: var(--primary);
+  margin-top: 4px;
+}
+
+.address-card-content {
+  flex: 1;
+}
+
+.address-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.address-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.address-type-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--border-radius-full);
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.address-type-tag.home { background: #e0f2fe; color: #0284c7; }
+.address-type-tag.office { background: #fef3c7; color: #b45309; }
+
+.address-full-text {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+
+.address-phone-text {
+  font-size: 0.825rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.address-card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-addr-action {
+  background: none;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-addr-action:hover {
+  text-decoration: underline;
+}
+
+.btn-addr-action.delete {
+  color: #dc3545;
+}
+
+/* New Address Form */
+.new-address-form-box {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+.addr-type-pill {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.addr-type-pill input {
+  accent-color: var(--primary);
+}
+
+/* ==========================================================================
+   STEP 2: PAYMENT METHODS
+   ========================================================================== */
+.payment-methods-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.payment-method-option {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: #ffffff;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.payment-method-option.active {
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(13, 110, 253, 0.1);
+}
+
+.payment-option-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.payment-option-header input[type="radio"] {
+  accent-color: var(--primary);
+  width: 18px;
+  height: 18px;
+}
+
+.payment-title-wrap strong {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.payment-brand-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.payment-subform {
+  padding: 16px 20px 20px;
+  background: #fafbfc;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* ==========================================================================
+   STEP 3: ORDER REVIEW
+   ========================================================================== */
+.review-summary-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 18px 20px;
+}
+
+.review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.review-card-top h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.btn-change-link {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-change-link:hover {
+  text-decoration: underline;
+}
+
+.expected-delivery-banner {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+}
+
+.review-items-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 18px;
+}
+
+.review-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review-item-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.review-item-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.review-thumb {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+}
+
+.review-item-info {
+  flex: 1;
+}
+
+.review-item-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.review-item-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.review-item-total {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.btn-step-minus, .btn-step-plus {
+  width: 26px;
+  height: 26px;
+  border-radius: 50% !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.btn-step-remove {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-step-remove:hover {
+  text-decoration: underline;
+}
+
+.btn-place-order {
+  background: linear-gradient(135deg, var(--secondary) 0%, #1e7e34 100%);
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--border-radius-full);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(40, 167, 69, 0.4);
+}
+
+.btn-place-order:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(40, 167, 69, 0.5);
+}
+
+/* ==========================================================================
+   STEP 4: ORDER CONFIRMATION
+   ========================================================================== */
+.order-success-check-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e8f7ec;
+  color: var(--secondary);
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 4px 18px rgba(40, 167, 69, 0.2);
+}
+
+.order-success-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.order-ref-badge-card {
+  display: inline-flex;
+  flex-direction: column;
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  padding: 14px 28px;
+  border-radius: var(--border-radius);
+}
+
+.ref-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.ref-code {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  font-family: var(--font-heading);
+}
+
+.ref-time {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.order-dispatch-details-box {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+.dispatch-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.dispatch-row i {
+  font-size: 1.3rem;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   ORDER SUMMARY SIDEBAR (Right Side)
+   ========================================================================== */
+.checkout-summary-card {
+  background: #ffffff;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 90px;
+}
+
+.checkout-summary-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.checkout-sidebar-items-scroll {
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-right: 4px;
+}
+
+.sidebar-item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.sidebar-item-thumb {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+}
+
+.sidebar-item-info {
+  flex: 1;
+}
+
+.sidebar-item-name {
+  font-weight: 600;
+  color: var(--text-dark);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 170px;
+}
+
+.sidebar-item-qty {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.sidebar-item-price {
+  font-weight: 700;
+}
+
+.checkout-sidebar-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.sidebar-trust-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--border-radius-sm);
+  padding: 10px;
+  font-size: 0.75rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .checkout-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .checkout-summary-card {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .checkout-steps-wrapper {
+    padding: 16px;
+  }
+  .steps-progress-track {
+    left: 30px;
+    right: 30px;
+  }
+  .step-label {
+    font-size: 0.72rem;
+  }
+  .checkout-panel-card {
+    padding: 18px;
+  }
+  .step-footer-actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+  .step-footer-actions button, .step-footer-actions a {
+    width: 100%;
+    text-align: center;
+  }
+}

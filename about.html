@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | MedCare Online Pharmacy - Our Story, Mission & Certified Team</title>
+  <meta name="description" content="Discover MedCare Online Pharmacy. Founded by licensed pharmacists, we deliver 100% authentic medicines, WHO-GMP certified supplies, and compassionate healthcare across 500+ Indian cities.">
+
+  <!-- Google Fonts: Poppins (Headings) & Roboto (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Free Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Shared & About Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT & HELPLINE BAR
+       ========================================================================== -->
+  <aside class="top-bar" aria-label="Quick helpline">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fa-solid fa-phone-volume"></i> 24/7 Pharmacist Helpline: <strong>+91 1800-MED-CARE</strong></span>
+        <span><i class="fa-solid fa-truck-fast"></i> Express Delivery in 19,000+ Pin Codes</span>
+      </div>
+      <div class="top-bar-right">
+        <span class="top-bar-badge"><i class="fa-solid fa-shield-halved"></i> 100% Certified Genuine</span>
+        <a href="prescription.html" class="trigger-upload-rx"><i class="fa-solid fa-file-medical"></i> Quick Rx Upload</a>
+        <a href="contact.html"><i class="fa-solid fa-headset"></i> Support & Contact</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR (Sticky/Fixed Top)
+       ========================================================================== -->
+  <header class="main-header" id="mainHeader">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo on left -->
+        <a href="index.html" class="logo" aria-label="MedCare Online Pharmacy Home">
+          <div class="logo-icon-wrap">
+            <i class="fa-solid fa-notes-medical"></i>
+          </div>
+          <span>MedCare<span class="logo-plus">+</span></span>
+        </a>
+
+        <!-- Desktop Navigation Menu Items -->
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="shop.html" class="nav-link">Shop Medicines</a></li>
+          <li>
+            <a href="prescription.html" class="nav-link">
+              Upload Prescription
+              <span class="nav-link-badge">Fast</span>
+            </a>
+          </li>
+          <li><a href="search.html" class="nav-link">Search</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+
+        <!-- Right Side: Cart Button with Badge, Checkout Button & Login / Register -->
+        <div class="header-actions">
+          <button class="btn-header-cart" id="cartBtn" aria-label="Open Shopping Cart" title="View Cart Drawer">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Cart</span>
+            <span class="cart-count-badge" style="display: none;">0</span>
+          </button>
+
+          <a href="checkout.html" class="btn-header-checkout" id="headerCheckoutBtn" title="Proceed directly to Checkout">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Checkout</span>
+          </a>
+
+          <a href="admin.html" class="btn btn-outline-primary btn-sm px-3" style="border-radius: var(--border-radius-full);" title="Access Admin Portal">
+            <i class="fa-solid fa-user-shield me-1"></i> Admin
+          </a>
+
+          <a href="login.html" class="btn-login" id="loginBtn">
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Login / Register</span>
+          </a>
+
+          <button class="btn-mobile-menu" id="mobileMenuBtn" aria-label="Open Mobile Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Responsive Navigation Drawer -->
+  <aside class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+        <span>MedCare<span class="logo-plus">+</span></span>
+      </a>
+      <button class="btn-close-mobile" id="closeMobileNav" aria-label="Close menu">&times;</button>
+    </div>
+
+    <ul class="mobile-nav-menu">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house text-primary"></i> Home</a></li>
+      <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-capsules text-primary"></i> Shop Medicines</a></li>
+      <li><a href="search.html" class="mobile-nav-link"><i class="fa-solid fa-magnifying-glass text-primary"></i> Search Catalog</a></li>
+      <li><a href="about.html" class="mobile-nav-link active"><i class="fa-solid fa-circle-info text-primary"></i> About Us</a></li>
+      <li><a href="prescription.html" class="mobile-nav-link"><i class="fa-solid fa-file-prescription text-primary"></i> Upload Prescription</a></li>
+      <li><a href="cart.html" class="mobile-nav-link"><i class="fa-solid fa-cart-shopping text-primary"></i> Shopping Cart</a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope text-primary"></i> Contact Us</a></li>
+      <li><a href="admin.html" class="mobile-nav-link text-primary"><i class="fa-solid fa-user-shield text-primary"></i> Admin Dashboard</a></li>
+    </ul>
+
+    <div class="mt-auto">
+      <a href="checkout.html" class="btn btn-success w-100 mb-2 fw-bold">
+        <i class="fa-solid fa-lock me-2"></i> Go to Checkout
+      </a>
+      <a href="login.html" class="btn btn-primary w-100 mb-2">
+        <i class="fa-solid fa-right-to-bracket me-2"></i> Account Login
+      </a>
+      <div class="text-center text-muted small">
+        <i class="fa-solid fa-headset me-1"></i> Helpline: 1800-MED-CARE
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       BREADCRUMB NAVIGATION
+       ========================================================================== -->
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i> Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">About Us</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       1. HERO BANNER
+       ========================================================================== -->
+  <section class="about-hero-section">
+    <div class="container">
+      <div class="about-hero-inner">
+        <div class="about-hero-badge">
+          <i class="fa-solid fa-heart-pulse"></i> Trusted by Over 50,000 Indian Families
+        </div>
+        <h1 class="about-hero-title">About MedCare Online Pharmacy</h1>
+        <p class="about-hero-tagline">
+          Pioneering accessible, 100% authentic healthcare and prescription medicine delivery across India. Powered by certified clinical pharmacists and cold-chain supply excellence.
+        </p>
+        <div class="about-hero-trust-row">
+          <div class="about-hero-trust-item">
+            <i class="fa-solid fa-shield-halved text-warning"></i>
+            <span>Licensed by CDSCO & State FDA</span>
+          </div>
+          <div class="about-hero-trust-item">
+            <i class="fa-solid fa-user-doctor text-info"></i>
+            <span>Registered Clinical Pharmacists</span>
+          </div>
+          <div class="about-hero-trust-item">
+            <i class="fa-solid fa-truck-fast text-success"></i>
+            <span>Express Doorstep Delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       2. OUR STORY SECTION
+       ========================================================================== -->
+  <section class="about-story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content-col">
+          <span class="story-badge">Our Journey &amp; Legacy</span>
+          <h2 class="story-title">Transforming Healthcare Access from Prescription to Doorstep</h2>
+          <p class="story-lead-p">
+            MedCare was founded in 2018 with a singular mission: to guarantee that every patient, regardless of location, receives 100% authentic, unadulterated medication at fair and transparent prices.
+          </p>
+          <p class="story-body-p">
+            Recognizing that counterfeit pharmaceuticals and erratic pricing plague conventional brick-and-mortar chemist networks, our team of clinical doctors and pharmacologists established a direct-from-manufacturer supply chain. Every single tablet, injection, and wellness supplement is procured directly from WHO-GMP certified pharmaceutical leaders such as Cipla, Sun Pharma, and Abbott.
+          </p>
+          <ul class="story-highlights-list">
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span><strong>Double Pharmacist Verification:</strong> Every prescription is scrutinized by a licensed clinician to verify dosages, contraindications, and course durations.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span><strong>Zero Counterfeit Guarantee:</strong> Direct sourcing with tamper-evident batch authentication codes on every dispatched pack.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span><strong>State-of-the-Art Cold Chain:</strong> Temperature-controlled storage ensuring biologicals, insulin, and sensitive vaccines preserve maximum therapeutic potency.</span>
+            </li>
+          </ul>
+          <a href="shop.html" class="btn btn-primary px-4 py-2 fw-bold" style="border-radius: var(--border-radius-full);">
+            <i class="fa-solid fa-pills me-2"></i> Explore Our Medicine Catalog
+          </a>
+        </div>
+
+        <div class="story-media-wrap">
+          <img 
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" 
+            alt="MedCare Pharmacist verifying authentic medicines" 
+            class="story-main-img"
+            loading="lazy"
+          >
+          <div class="story-floating-card">
+            <div class="story-floating-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="story-floating-text">
+              <h4>8+ Years</h4>
+              <p>Of clinical excellence and patient-first care across India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. STATISTICS COUNTER (Animated on Scroll)
+       ========================================================================== -->
+  <section class="stats-counter-section" id="statsCounterSection" aria-label="Key Performance Statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <!-- Stat 1: 50,000+ Customers -->
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="stat-number-wrap">
+            <span class="counter-value" data-target="50000" data-suffix="+">0</span>
+          </div>
+          <p class="stat-label">Customers Served</p>
+        </div>
+
+        <!-- Stat 2: 10,000+ Medicines -->
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
+          <div class="stat-number-wrap">
+            <span class="counter-value" data-target="10000" data-suffix="+">0</span>
+          </div>
+          <p class="stat-label">Medicines Available</p>
+        </div>
+
+        <!-- Stat 3: 500+ Cities -->
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div class="stat-number-wrap">
+            <span class="counter-value" data-target="500" data-suffix="+">0</span>
+          </div>
+          <p class="stat-label">Cities Covered</p>
+        </div>
+
+        <!-- Stat 4: 99% Satisfaction -->
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="stat-number-wrap">
+            <span class="counter-value" data-target="99" data-suffix="%">0</span>
+          </div>
+          <p class="stat-label">Customer Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. OUR MISSION & VISION (Two Column Layout with Icons)
+       ========================================================================== -->
+  <section class="mission-vision-section">
+    <div class="container">
+      <div class="section-header-centered">
+        <span class="section-tagline">Our Guiding North Star</span>
+        <h2 class="section-main-heading">Our Purpose &amp; Aspiration</h2>
+        <p class="section-subtext">
+          Guided by clinical ethics, compassionate care, and digital innovation, we work around the clock to improve patient outcomes nationwide.
+        </p>
+      </div>
+
+      <div class="mission-vision-grid">
+        <!-- Mission Card -->
+        <div class="mv-card">
+          <div class="mv-icon-wrap mv-icon-mission">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="mv-title">Our Mission</h3>
+          <p class="mv-desc">
+            To provide safe, reliable, and affordable pharmaceuticals to every patient across India by combining certified clinical expertise with modern digital fulfillment, making healthcare painless, prompt, and dignified.
+          </p>
+          <ul class="mv-checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Eliminate counterfeit drugs through end-to-end verified sourcing.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Deliver essential and chronic medicines within hours of prescription upload.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Provide free, 24/7 pharmacist dosage advisory to patients in need.</li>
+          </ul>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="mv-card">
+          <div class="mv-icon-wrap mv-icon-vision">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <h3 class="mv-title">Our Vision</h3>
+          <p class="mv-desc">
+            To establish MedCare as South Asia’s most trusted healthcare ecosystem, pioneering AI-driven prescription safety, personalized medicine management, and zero-compromise cold-chain logistics.
+          </p>
+          <ul class="mv-checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Expand automated cold-chain logistics to tier-2, 3, and rural communities.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Integrate proactive chronic disease management and refill adherence automation.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Drive down patient healthcare costs by up to 25% through direct procurement.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. OUR TEAM (Grid of 6 Team Members)
+       ========================================================================== -->
+  <section class="about-team-section">
+    <div class="container">
+      <div class="section-header-centered">
+        <span class="section-tagline">Clinical &amp; Operational Leadership</span>
+        <h2 class="section-main-heading">Meet Our Expert Team</h2>
+        <p class="section-subtext">
+          Behind every prescription review and medicine delivery is a dedicated team of doctors, licensed clinical pharmacists, and healthcare logistics veterans.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Team Member 1 -->
+        <article class="team-member-card">
+          <div class="team-member-photo-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" 
+              alt="Dr. Rajeshwari Sen" 
+              class="team-member-photo"
+              loading="lazy"
+            >
+            <div class="team-social-overlay">
+              <a href="#" class="team-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="team-social-btn" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="mailto:sen.medical@medcarepharmacy.com" class="team-social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Dr. Rajeshwari Sen, MD</h3>
+            <span class="team-member-role">Chief Medical Officer &amp; Co-Founder</span>
+            <p class="team-member-bio">Over 18 years of clinical pharmacology and hospital administration experience at Apollo and AIIMS.</p>
+          </div>
+        </article>
+
+        <!-- Team Member 2 -->
+        <article class="team-member-card">
+          <div class="team-member-photo-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" 
+              alt="Vikramaditya Rao" 
+              class="team-member-photo"
+              loading="lazy"
+            >
+            <div class="team-social-overlay">
+              <a href="#" class="team-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="team-social-btn" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="mailto:vikram.rao@medcarepharmacy.com" class="team-social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Vikramaditya Rao, B.Pharm, MBA</h3>
+            <span class="team-member-role">Head of Pharmaceutical Supply Chain</span>
+            <p class="team-member-bio">Spearheaded national cold-chain fulfillment operations across top pharmaceutical multinationals.</p>
+          </div>
+        </article>
+
+        <!-- Team Member 3 -->
+        <article class="team-member-card">
+          <div class="team-member-photo-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1594824813571-638f02614d3f?auto=format&fit=crop&w=600&q=80" 
+              alt="Pooja Sharma" 
+              class="team-member-photo"
+              loading="lazy"
+            >
+            <div class="team-social-overlay">
+              <a href="#" class="team-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="team-social-btn" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="mailto:pooja.sharma@medcarepharmacy.com" class="team-social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Pooja Sharma, M.Pharm</h3>
+            <span class="team-member-role">Chief Clinical Pharmacist</span>
+            <p class="team-member-bio">Leads our 24/7 prescription safety and drug-drug interaction screening protocol.</p>
+          </div>
+        </article>
+
+        <!-- Team Member 4 -->
+        <article class="team-member-card">
+          <div class="team-member-photo-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80" 
+              alt="Dr. Arvind Mehta" 
+              class="team-member-photo"
+              loading="lazy"
+            >
+            <div class="team-social-overlay">
+              <a href="#" class="team-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="team-social-btn" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="mailto:mehta.advisory@medcarepharmacy.com" class="team-social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Dr. Arvind Mehta, MBBS, FACC</h3>
+            <span class="team-member-role">Senior Medical Advisor &amp; Cardiologist</span>
+            <p class="team-member-bio">Expert in chronic cardiovascular care protocols and geriatric patient medication adherence.</p>
+          </div>
+        </article>
+
+        <!-- Team Member 5 -->
+        <article class="team-member-card">
+          <div class="team-member-photo-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" 
+              alt="Ananya Deshmukh" 
+              class="team-member-photo"
+              loading="lazy"
+            >
+            <div class="team-social-overlay">
+              <a href="#" class="team-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="team-social-btn" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="mailto:ananya.d@medcarepharmacy.com" class="team-social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Ananya Deshmukh</h3>
+            <span class="team-member-role">VP of Healthcare Technology &amp; Security</span>
+            <p class="team-member-bio">Architect of MedCare's HIPAA-compliant encrypted patient prescription cloud platform.</p>
+          </div>
+        </article>
+
+        <!-- Team Member 6 -->
+        <article class="team-member-card">
+          <div class="team-member-photo-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" 
+              alt="Kunal Malhotra" 
+              class="team-member-photo"
+              loading="lazy"
+            >
+            <div class="team-social-overlay">
+              <a href="#" class="team-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="team-social-btn" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="mailto:kunal.m@medcarepharmacy.com" class="team-social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Kunal Malhotra</h3>
+            <span class="team-member-role">Director of Last-Mile Delivery</span>
+            <p class="team-member-bio">Optimizes 2-hour rapid delivery fleets and temperature-monitored pharmaceutical couriers.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. WHY CHOOSE US (6 Feature Boxes with Icons)
+       ========================================================================== -->
+  <section class="why-choose-section">
+    <div class="container">
+      <div class="section-header-centered">
+        <span class="section-tagline">Why MedCare Stands Apart</span>
+        <h2 class="section-main-heading">The MedCare Quality Standard</h2>
+        <p class="section-subtext">
+          When it comes to medications, patient safety is our highest priority. Here is why thousands trust us every day.
+        </p>
+      </div>
+
+      <div class="why-choose-grid">
+        <!-- Feature 1 -->
+        <div class="why-feature-box">
+          <div class="why-feature-icon"><i class="fa-solid fa-id-card-clip"></i></div>
+          <h3 class="why-feature-title">100% Licensed Pharmacy</h3>
+          <p class="why-feature-desc">Fully registered and compliant under the Drugs and Cosmetics Act of India with certified retail and wholesale dispensaries.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="why-feature-box">
+          <div class="why-feature-icon"><i class="fa-solid fa-user-doctor"></i></div>
+          <h3 class="why-feature-title">Certified Clinical Pharmacists</h3>
+          <p class="why-feature-desc">Every order is double-checked by registered M.Pharm &amp; B.Pharm clinicians to prevent dangerous contraindications and errors.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="why-feature-box">
+          <div class="why-feature-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h3 class="why-feature-title">Quality &amp; Authenticity Assured</h3>
+          <p class="why-feature-desc">We procure directly from certified WHO-GMP drug manufacturers. Every package carries genuine batch seals and verifiable expiry dates.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="why-feature-box">
+          <div class="why-feature-icon"><i class="fa-solid fa-snowflake"></i></div>
+          <h3 class="why-feature-title">Cold-Chain Temperature Control</h3>
+          <p class="why-feature-desc">Insulin, biologics, and sensitive syrups are stored and transported in insulated packs between 2°C–8°C to retain full potency.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="why-feature-box">
+          <div class="why-feature-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3 class="why-feature-title">24/7 Patient Helpline</h3>
+          <p class="why-feature-desc">Call our toll-free line anytime or chat on WhatsApp for immediate guidance on dosage, administration, and refill tracking.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="why-feature-box">
+          <div class="why-feature-icon"><i class="fa-solid fa-tags"></i></div>
+          <h3 class="why-feature-title">Guaranteed Savings Up to 20%</h3>
+          <p class="why-feature-desc">By removing middlemen and broker markups, we pass direct institutional discounts back to our patients on every order.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. CERTIFICATIONS & PARTNER BRANDS (Marquee Carousel)
+       ========================================================================== -->
+  <section class="certifications-section">
+    <div class="container">
+      <div class="section-header-centered mb-2">
+        <span class="section-tagline">Trusted Partnerships</span>
+        <h2 class="section-main-heading">Accreditations &amp; Pharmaceutical Partners</h2>
+        <p class="section-subtext">
+          MedCare partners with India's most respected pharmaceutical manufacturers and complies with international healthcare safety benchmarks.
+        </p>
+      </div>
+
+      <!-- Infinite Marquee Track -->
+      <div class="marquee-container" aria-label="Partner Brands Marquee">
+        <div class="marquee-track">
+          <!-- Set 1 -->
+          <div class="partner-logo-item"><i class="fa-solid fa-award"></i> WHO-GMP Certified</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-shield-halved"></i> FDA Compliant</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-capsules"></i> Cipla Pharma</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-pills"></i> Sun Pharma</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-prescription-bottle-medical"></i> Abbott Healthcare</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-hospital"></i> Dr. Reddy's Labs</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-stamp"></i> ISO 9001:2015</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-lock"></i> HIPAA Compliant</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-flask"></i> Lupin Pharmaceuticals</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-heart-pulse"></i> Zydus Healthcare</div>
+
+          <!-- Duplicate Set for Seamless Infinite Scrolling -->
+          <div class="partner-logo-item"><i class="fa-solid fa-award"></i> WHO-GMP Certified</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-shield-halved"></i> FDA Compliant</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-capsules"></i> Cipla Pharma</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-pills"></i> Sun Pharma</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-prescription-bottle-medical"></i> Abbott Healthcare</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-hospital"></i> Dr. Reddy's Labs</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-stamp"></i> ISO 9001:2015</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-lock"></i> HIPAA Compliant</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-flask"></i> Lupin Pharmaceuticals</div>
+          <div class="partner-logo-item"><i class="fa-solid fa-heart-pulse"></i> Zydus Healthcare</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: About MedCare -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="logo-icon-wrap"><i class="fa-solid fa-notes-medical"></i></div>
+            <span>MedCare<span class="logo-plus">+</span></span>
+          </div>
+          <p class="footer-desc">
+            India's most trusted online pharmacy offering 100% genuine certified medicines, OTC wellness essentials, and rapid doorstep delivery.
+          </p>
+          <div class="footer-cert-badges">
+            <span class="badge bg-success-subtle text-success me-2"><i class="fa-solid fa-award"></i> WHO-GMP Certified</span>
+            <span class="badge bg-primary-subtle text-primary"><i class="fa-solid fa-user-doctor"></i> Licensed Pharmacists</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Explore Catalog</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> All Medicines</a></li>
+            <li><a href="search.html?tab=medicines"><i class="fa-solid fa-angle-right"></i> Prescription Drugs</a></li>
+            <li><a href="search.html?tab=health"><i class="fa-solid fa-angle-right"></i> Health Supplements</a></li>
+            <li><a href="prescription.html"><i class="fa-solid fa-angle-right"></i> Upload Prescription</a></li>
+            <li><a href="search.html"><i class="fa-solid fa-angle-right"></i> Search Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4>Company &amp; Care</h4>
+          <ul class="footer-links">
+            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Our Pharmacy</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Support</a></li>
+            <li><a href="contact.html#business-hours"><i class="fa-solid fa-angle-right"></i> Pharmacy Timings</a></li>
+            <li><a href="contact.html#faq-section"><i class="fa-solid fa-angle-right"></i> Order &amp; Delivery FAQs</a></li>
+            <li><a href="admin.html"><i class="fa-solid fa-angle-right"></i> Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Central Pharmacy</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MedCare Healthcare Towers, 4th Cross, 100ft Road, Bengaluru 560034</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>1800-MED-CARE (Toll-Free 24/7)</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>support@medcarepharmacy.com</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Online Orders: Open 24/7 / 365 Days</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MedCare Online Pharmacy. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">FDA Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       GLOBAL UI COMPONENTS: FLOATING WHATSAPP, BACK TO TOP, COOKIE BANNER
+       ========================================================================== -->
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="floating-whatsapp-tooltip">Chat with a Pharmacist on WhatsApp</span>
+  </a>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent-banner" id="cookieConsentBanner" role="dialog" aria-label="Cookie Preferences">
+    <div class="cookie-content-row">
+      <i class="fa-solid fa-cookie-bite cookie-icon"></i>
+      <div class="cookie-text">
+        <h5>We Value Your Privacy</h5>
+        <p>We use essential cookies and encrypted clinical storage to ensure safe prescription verification and faster delivery.</p>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie-decline" id="btnDeclineCookies">Decline</button>
+      <button class="btn-cookie-accept" id="btnAcceptCookies">Accept All</button>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Drawer Overlay & Body -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-header-title">
+        <i class="fa-solid fa-cart-shopping text-primary"></i>
+        <span>Shopping Cart</span>
+        <span class="cart-count-badge">0</span>
+      </div>
+      <button class="btn-close-cart" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="cartItemsList"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+      <div class="cart-summary-row total-row"><span>Estimated Total</span><strong id="cartTotal">₹0</strong></div>
+      <a href="checkout.html" class="btn btn-primary w-100 py-3 fw-bold"><i class="fa-solid fa-lock me-2"></i> Proceed to Checkout</a>
+    </div>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/about.js"></script>
+  <script src="js/global-widgets.js"></script>
+</body>
+</html>
